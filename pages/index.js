@@ -1,7 +1,7 @@
-import apiFetch, { getPageBySlug} from "@/lib/api";
+import { getPageBySlug } from "@/lib/api";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "@/styles/Home.module.css";
 
 export default function Home({ data }) {
     console.log({ data });
