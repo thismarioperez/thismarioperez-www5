@@ -38,6 +38,10 @@ export async function getNavigationBySlug(SLUG) {
     return apiFetch(NavigationBySlug, { variables: { SLUG } });
 }
 
+export async function getNavigationMain() {
+    return getNavigationBySlug("main");
+}
+
 export async function getPageBySlug(SLUG) {
     return apiFetch(PageBySlug, { variables: { SLUG } });
 }
