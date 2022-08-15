@@ -1,4 +1,4 @@
-import apiFetch from "@/lib/api";
+import apiFetch, { getPageBySlug} from "@/lib/api";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
@@ -89,100 +89,10 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-    const res = await apiFetch(
-        `
-      query($Slug: String!) {
-        pages: pages(filters: { slug: { eq: $Slug } }) {
-          data {
-            id
-          }
-        }
-      }        
-      `,
-        {
-            variables: {
-                Slug: "home",
-            },
-        }
-    );
-    console.log( res );
-    const id = res.pages.data[0].id;
-
-    const { page } = await apiFetch(
-        `
-      query($ID: ID!) {
-        page: page(id: $ID) {
-          data {
-            id
-            attributes {
-              title
-              slug
-              publishedAt
-              blocks {
-                __typename
-                ...on PageBlocksDynamicZone {
-                  ...on ComponentBlocksHero {
-                    id
-                    backgroundColor {
-                      ... on ColorEntityResponse {
-                        data {
-                          attributes {
-                            name
-                          }
-                        }
-                      }
-                    }
-                    title
-                    subtitle
-                    content
-                  }
-                  ...on ComponentBlocksInterior {
-                    id
-                    backgroundColor {
-                      ... on ColorEntityResponse {
-                        data {
-                          attributes {
-                            name
-                          }
-                        }
-                      }
-                    }
-                    title
-                    subtitle
-                    content
-                  }
-                  ...on ComponentBlocksProjectsList {
-                    projects {
-                      data {
-                        id
-                        attributes {
-                          title
-                          content
-                          links {
-                            label
-                            target
-                            href
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      `,
-        {
-            variables: {
-                ID: id,
-            },
-        }
-    );
+    const { pages } = await getPageBySlug("home");
     return {
         props: {
-            data: page,
+            data: pages,
         },
     };
 }
