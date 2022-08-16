@@ -1,11 +1,12 @@
 import { getPageBySlug } from "@/lib/api";
-import navigationMainData from "@/lib/navigation-main.preval";
+import useStore from "@/store";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
 export default function Home({ data }) {
-    console.log({navigationMainData});
+    const { navigations } = useStore(({ navigations }) => ({ navigations }));
+    console.table(navigations);
     return (
         <div className={styles.container}>
             <Head>
