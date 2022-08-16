@@ -11,13 +11,15 @@
   "dependencies": {
     "@fontsource/source-code-pro": "^4.5.11",
     "gsap": "^3.10.4",
+    "immer": "^9.0.15",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
     "next": "12.2.5",
     "next-plugin-preval": "^1.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.54.4"
+    "sass": "^1.54.4",
+    "zustand": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "8.22.0",
