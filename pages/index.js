@@ -1,5 +1,5 @@
-import { getPageBySlug } from "@/api";
-import navigationMainData from "@/api/navigation-main.preval";
+import { getPageBySlug } from "@/lib/api";
+import navigationMainData from "@/lib/navigation-main.preval";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
