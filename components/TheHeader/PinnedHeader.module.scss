@@ -1,0 +1,68 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: z-layer(10);
+    background-color: theme-colors(dark);
+}
+
+.inner {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.branding {
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        border-left: ($nudge / 1.25) solid theme-colors(brand-yellow);
+    }
+}
+
+.logo {
+    position: relative;
+    // padding: $nudge ($nudge / 2);
+    padding: $nudge $container-padding;
+
+    svg {
+        fill: #fff;
+        stroke: transparent;
+        transition: opacity duration(1) $ease, transform duration(1) $ease;
+    }
+
+    svg:first-child {
+        opacity: 1;
+        width: $header-logo-size;
+        max-width: $header-logo-size-max;
+        transform: translate3d(0, 0, 0);
+    }
+
+    svg:last-child {
+        opacity: 0;
+        width: $header-logo-mark-size;
+        position: absolute;
+        top: 50%;
+        left: $container-padding;
+        transform: translate3d(-100%, -50%, 0);
+    }
+
+    // swap logo with logo-mark once page is scrolled
+    &--scrolled {
+        svg:first-child {
+            opacity: 0;
+            transform: translate3d(-100%, 0, 0);
+        }
+        svg:last-child {
+            opacity: 1;
+            transform: translate3d(0, -50%, 0);
+        }
+    }
+}
