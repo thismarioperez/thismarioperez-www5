@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gsap": "^3.10.4",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
     "next": "12.2.5",
