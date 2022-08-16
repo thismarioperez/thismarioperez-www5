@@ -1,0 +1,112 @@
+@function next_breakpoint($size) {
+    $values: map-keys($breakpoints);
+    $i: 0;
+
+    @if map-has-key($breakpoints, $size) {
+        $i: index($values, $size) + 1;
+    }
+    @if $i>length($breakpoints) or $i==0 {
+        @return "";
+    } @else {
+        @return map-get($breakpoints, nth($values, $i)) - 1;
+    }
+}
+
+// super simplified version of foundation's breakpoint
+@function breakpoint($size) {
+    $bp: nth($size, 1);
+    $direction: if(length($size) > 1, nth($size, 2), up);
+    $value: map-get($breakpoints, $bp);
+
+    // might need to be better at handling breakpoints
+    // assumes pixel if value isn't found in breakpoints array
+    @if not $value {
+        $value: $bp;
+    }
+
+    $str: "";
+
+    @if $direction== "up" {
+        $str: "(min-width: #{$value})";
+    } @else if $direction== "only" {
+        $next: next_breakpoint($bp);
+        $str: "(min-width: #{$value})";
+
+        @if $next {
+            $str: $str + " and (max-width: #{$next})";
+        }
+    } @else if $direction== "down" {
+        $next: next_breakpoint($bp);
+        $str: "(max-width: #{$next})";
+    }
+
+    @return $str;
+}
+
+@mixin breakpoint($value) {
+    $str: breakpoint($value);
+
+    @media screen and #{$str} {
+        @content;
+    }
+}
+
+@mixin xxsmall($direction: up) {
+    @include breakpoint(xxsmall $direction) {
+        @content;
+    }
+}
+
+@mixin xsmall($direction: up) {
+    @include breakpoint(xsmall $direction) {
+        @content;
+    }
+}
+
+@mixin small($direction: up) {
+    @include breakpoint(small $direction) {
+        @content;
+    }
+}
+
+@mixin medium($direction: up) {
+    @include breakpoint(medium $direction) {
+        @content;
+    }
+}
+
+@mixin large($direction: up) {
+    @include breakpoint(large $direction) {
+        @content;
+    }
+}
+
+@mixin xlarge($direction: up) {
+    @include breakpoint(xlarge $direction) {
+        @content;
+    }
+}
+
+@mixin xxlarge($direction: up) {
+    @include breakpoint(xxlarge $direction) {
+        @content;
+    }
+}
+
+@mixin huge($direction: up) {
+    @include breakpoint(huge $direction) {
+        @content;
+    }
+}
+
+@mixin xhuge($direction: up) {
+    @include breakpoint(xhuge $direction) {
+        @content;
+    }
+}
+
+@mixin xxhuge($direction: up) {
+    @include breakpoint(xxhuge $direction) {
+        @content;
+    }
+}

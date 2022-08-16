@@ -1,0 +1,171 @@
+/******************************************************************************
+ * Fonts: Util
+*******************************************************************************/
+@mixin font-light() {
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@mixin font-normal() {
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@mixin font-bold() {
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/******************************************************************************
+ * Fonts: Styles
+*******************************************************************************/
+@mixin font-body {
+    font-family: $font-family;
+    @include font-normal();
+}
+
+@mixin font-headline {
+    font-family: $font-family;
+    @include font-light();
+}
+
+@mixin font-headline-2 {
+    font-family: $font-family;
+    @include font-bold();
+}
+
+/******************************************************************************
+ * Typography
+*******************************************************************************/
+@mixin b() {
+    @include font-bold();
+}
+
+@mixin p() {
+    font-size: $p-size;
+    line-height: $p-line;
+    letter-spacing: $track;
+    @include font-body();
+}
+
+@mixin a() {
+    display: inline;
+    text-decoration: underline;
+    @include font-body();
+}
+
+@mixin pa() {
+    position: relative;
+    z-index: z-layer(1);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-image: linear-gradient(
+        theme-colors(brand-yellow),
+        theme-colors(brand-yellow)
+    );
+    text-decoration: none;
+    transition: color duration(1) $ease, background-size duration(1) $ease;
+    transform: translate3d(0, 0, 0);
+}
+
+@mixin pa-hover() {
+    &:hover {
+        color: theme-colors(dark);
+        background-size: 100% 100%;
+    }
+}
+
+@mixin pa-touch-hover() {
+    &:hover {
+        color: theme-colors(brand-black);
+        background-size: 100% 100%;
+    }
+}
+
+@mixin ha() {
+    display: inline;
+    position: relative;
+    color: theme-colors(brand-yellow);
+    overflow: hidden;
+    text-decoration: none;
+
+    &:after {
+        content: "\2192";
+        color: inherit;
+        font-weight: normal;
+        margin-left: ($nudge / 2);
+    }
+}
+
+@mixin li() {
+    padding-left: 20px;
+    @include p();
+}
+
+@mixin ol-li() {
+    list-style: decimal;
+}
+
+@mixin ul-li() {
+    list-style: disc;
+}
+
+@mixin pp() {
+    margin-top: expander(1) / 2;
+}
+
+@mixin h1() {
+    font-size: $h1-size;
+    line-height: $h1-line;
+    letter-spacing: $track;
+    text-transform: none;
+    @include font-headline();
+}
+
+@mixin h2() {
+    font-size: $h2-size;
+    line-height: $h2-line;
+    letter-spacing: $track;
+    text-transform: none;
+    @include font-headline();
+}
+
+@mixin h3() {
+    font-size: $h3-size;
+    line-height: $h3-line;
+    letter-spacing: $track;
+    text-transform: uppercase;
+    @include font-headline-2();
+}
+
+@mixin h4() {
+}
+
+@mixin h5() {
+}
+
+@mixin h6() {
+}
+
+@mixin hr() {
+    color: inherit;
+    display: block;
+    padding-top: $nudge;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid currentColor;
+    border-left: none;
+}
+
+@mixin quote() {
+    font-size: $quote-size;
+    line-height: $quote-line;
+    letter-spacing: $track;
+    text-transform: none;
+    @include font-headline();
+    font-style: italic;
+}

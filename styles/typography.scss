@@ -1,0 +1,233 @@
+/******************************************************************************
+ * Core/Typography
+*******************************************************************************/
+/******************************************************************************
+ * Paragraphs
+*******************************************************************************/
+p,
+li {
+    @include p();
+
+    @include small {
+        font-size: $p-size-two;
+        line-height: $p-line-two;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    strong {
+        @include b();
+    }
+}
+blockquote,
+.blockquote {
+    @include quote();
+
+    @include small {
+        font-size: $quote-size-two;
+        line-height: $quote-line-two;
+    }
+}
+
+/******************************************************************************
+ * Links
+*******************************************************************************/
+a {
+    @include a();
+}
+
+// paragraph links
+p a,
+blockquote a {
+    @include pa();
+}
+
+// headline links
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+    @include ha();
+}
+
+/******************************************************************************
+ * Headlines
+*******************************************************************************/
+h1 {
+    &,
+    & a {
+        @include h1();
+
+        @include small {
+            font-size: $h1-size-two;
+            line-height: $h1-line-two;
+        }
+    }
+}
+
+h2 {
+    &,
+    & a {
+        @include h2();
+
+        @include small {
+            font-size: $h2-size-two;
+            line-height: $h2-line-two;
+        }
+    }
+}
+
+h3 {
+    &,
+    & > a {
+        @include h3();
+    }
+}
+
+h1,
+h2,
+h3 {
+    & {
+        color: inherit;
+    }
+    strong {
+        @include b();
+    }
+}
+
+em {
+    @include b();
+}
+
+/******************************************************************************
+ * Rule lines
+*******************************************************************************/
+hr {
+    @include hr();
+}
+
+/*******************************************************************************
+ * Spacing
+ ******************************************************************************/
+p + p,
+p + ul,
+p + ol,
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + hr,
+p + blockquote,
+ul + p,
+ul + ul,
+ul + ol,
+ul + h1,
+ul + h2,
+ul + h3,
+ul + h4,
+ul + h5,
+ul + hr,
+ul + blockquote,
+ol + p,
+ol + ol,
+ol + ul,
+ol + h1,
+ol + h2,
+ol + h3,
+ol + h4,
+ol + h5,
+ol + hr,
+ol + blockquote,
+h1 + p,
+h1 + ul,
+h1 + ol,
+h1 + h1,
+h1 + h2,
+h1 + h3,
+h1 + h4,
+h1 + h5,
+h1 + hr,
+h1 + blockquote,
+h2 + p,
+h2 + ul,
+h2 + ol,
+h2 + h1,
+h2 + h2,
+h2 + h3,
+h2 + h4,
+h2 + h5,
+h2 + hr,
+h2 + blockquote,
+h3 + p,
+h3 + ul,
+h3 + ol,
+h3 + h1,
+h3 + h2,
+h3 + h3,
+h3 + h4,
+h3 + h5,
+h3 + hr,
+h3 + blockquote,
+h4 + p,
+h4 + ul,
+h4 + ol,
+h4 + h1,
+h4 + h2,
+h4 + h3,
+h4 + h4,
+h4 + h5,
+h4 + hr,
+h4 + blockquote,
+h5 + p,
+h5 + ul,
+h5 + ol,
+h5 + h1,
+h5 + h2,
+h5 + h3,
+h5 + h4,
+h5 + h5,
+h5 + hr,
+h5 + blockquote,
+hr + p,
+hr + ul,
+hr + ol,
+hr + h1,
+hr + h2,
+hr + h3,
+hr + h4,
+hr + h5,
+hr + hr,
+hr + blockquote {
+    @include pp();
+}
+
+/*******************************************************************************
+* Hoverable
+*******************************************************************************/
+.is-hoverable {
+    // prevent  hover state while scrolling
+    &:not(.is-scrolling) {
+        // paragraph link hovers
+        p a,
+        blockquote a {
+            @include pa-hover();
+        }
+    }
+}
+
+/*******************************************************************************
+* Touchable
+*******************************************************************************/
+.is-touchable {
+    &:not(.is-scrolling) {
+        // paragraph link hovers
+        p a,
+        blockquote a {
+            @include pa-touch-hover();
+        }
+    }
+}

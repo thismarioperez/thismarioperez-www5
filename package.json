@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/source-code-pro": "^4.5.11",
     "gsap": "^3.10.4",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",

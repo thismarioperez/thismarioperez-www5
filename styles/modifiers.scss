@@ -1,0 +1,73 @@
+/******************************************************************************
+ * Display
+*******************************************************************************/
+.-exp {
+    &,
+    &--1 {
+        @include exp();
+    }
+    &--2 {
+        @include exp-2();
+    }
+    &--3 {
+        @include exp-3();
+    }
+}
+.-vtop {
+    vertical-align: top;
+}
+.-vbot {
+    vertical-align: bottom;
+}
+.-full {
+    width: 100%;
+}
+.-tall {
+    min-height: 100vh;
+}
+.-block {
+    display: block;
+}
+.-pointer {
+    cursor: pointer;
+}
+.-cutoff {
+    max-width: $wrap-copy;
+}
+.-meta {
+    font-size: $meta-size;
+}
+.-fzero {
+    font-size: 0 !important;
+}
+
+/******************************************************************************
+ * Alignment
+*******************************************************************************/
+.-text {
+    &--left {
+        text-align: left;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--right {
+        text-align: right;
+    }
+
+    &--hidden {
+        display: inline-block;
+        text-indent: -99999%;
+    }
+}
+
+/******************************************************************************
+ * Backgrounds
+*******************************************************************************/
+@each $name, $color in $colors {
+    .-bg--#{$name} {
+        background-color: $color;
+    }
+}

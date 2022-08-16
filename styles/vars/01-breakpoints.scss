@@ -1,0 +1,17 @@
+/******************************************************************************
+ * Breakpoints
+ * These dimensions mirror those from boostrap-grid
+ * @See: https://scotch.io/tutorials/default-sizes-for-twitter-bootstraps-media-queries
+*******************************************************************************/
+$breakpoints: (
+    xxsmall: 320px,
+    xsmall: 480px,
+    small: 768px,
+    medium: 992px,
+    large: 1200px,
+    xlarge: 1440px,
+    xxlarge: 1600px,
+    huge: 1920px,
+    xhuge: 2560px,
+    xxhuge: 3840,
+);

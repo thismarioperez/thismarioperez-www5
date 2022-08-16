@@ -936,6 +936,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/source-code-pro@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-code-pro/-/source-code-pro-4.5.11.tgz#1a4aaf8d8631ad0acd54f26d4e69a6f80ba81c3d"
+  integrity sha512-SzVV/w+Es+I9JMEzH9ePTaFhgxYKnRBtxrJ8q67yHmSMkHRD5OpPlQR+kMCOt2AaCDcKFjDlyNk/uyRB8dA8hA==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"

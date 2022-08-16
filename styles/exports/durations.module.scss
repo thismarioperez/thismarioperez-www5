@@ -1,0 +1,5 @@
+:export {
+    @each $name, $duration in $durations {
+        #{$name}: $duration;
+    }
+}
