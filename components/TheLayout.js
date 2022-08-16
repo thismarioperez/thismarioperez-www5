@@ -1,6 +1,5 @@
 // lib
 import { useEffect, useRef } from "react";
-import { getGlobalData } from "@/lib/api";
 import useStore from "@/store";
 import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
@@ -13,19 +12,11 @@ import TheHeader from "@/components/TheHeader";
 export default function Layout({ preview, children }) {
     const router = useRouter();
     const contentRef = useRef();
-    const { headerOffset, setContact, setSocial } = useStore(
-        ({ headerOffset, setContact, setSocial }) => ({
+    const { headerOffset } = useStore(
+        ({ headerOffset }) => ({
             headerOffset,
-            setContact,
-            setSocial,
         })
     );
-    useEffect(async () => {
-        const data = await getGlobalData();
-        const { contact, social } = data;
-        setContact(contact);
-        setSocial(social);
-    }, []);
 
     useEffect(() => {
         const handleLinkClick = (e) => {
