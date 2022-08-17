@@ -1,3 +1,8 @@
+// lib
+import { constants } from "@/scripts/core";
+
+const { GITHUB_URL } = constants;
+
 // components
 import Contact from "@/components/common/Contact";
 import Container from "@/components/common/Container";
@@ -21,7 +26,7 @@ export default function Footer() {
                 <ContentBlock>
                     <p>
                         <a
-                            href={`https://github.com/thismarioperez/thismarioperez-www4`}
+                            href={GITHUB_URL}
                             className=""
                         >
                             View on GitHub
