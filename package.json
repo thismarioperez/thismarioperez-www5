@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/source-code-pro": "^4.5.11",
+    "classnames": "^2.3.1",
     "gsap": "^3.10.4",
     "immer": "^9.0.15",
     "isomorphic-fetch": "^3.0.0",
@@ -18,6 +19,9 @@
     "next-plugin-preval": "^1.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-intersection-observer": "^9.4.0",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.54.4",
     "zustand": "^4.0.0"
   },
