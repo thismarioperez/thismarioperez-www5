@@ -16,7 +16,7 @@ const DEFAULTS = {
 
 function Social() {
     const { socials } = useStore(({ contact }) => ({
-        socials: contact?.data?.attributes?.socials ?? DEFAULTS,
+        socials: contact?.socials ?? DEFAULTS,
     }));
     const _socials = Object.keys(socials).map((key) => ({
         type: key,

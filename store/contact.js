@@ -4,14 +4,14 @@ import produce from "immer";
 
 const NAMESPACE = "contact";
 
-let data = [];
+let data = {};
 
-if (apiData.contact?.data) {
-    data = apiData.contact.data;
+if (apiData.contact?.data?.attributes) {
+    data = apiData.contact.data.attributes;
 }
 
 const initialState = {
-    data,
+    ...data,
 };
 
 const createContact = (set, get) => ({
@@ -20,13 +20,16 @@ const createContact = (set, get) => ({
     },
     fetchContact: async () => {
         const res = await getContact();
-        let _data = [];
-        if (res.contact?.data?.length > 0) {
-            _data = res.contact.data;
+        let _data = {};
+        if (
+            res.contact?.data?.attributes &&
+            Object.keys(res.contact.data.attributes).length > 0
+        ) {
+            _data = res.contact.data.attributes;
         }
         set(
             produce((state) => {
-                state[NAMESPACE].data = _data;
+                state[NAMESPACE] = _data;
             })
         );
     },

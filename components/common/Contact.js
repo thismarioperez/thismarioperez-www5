@@ -12,7 +12,7 @@ const DEFAULTS = {
 
 export default function Contact() {
     const { contact } = useStore(({ contact }) => ({
-        contact: contact?.data?.attributes ?? DEFAULTS,
+        contact: contact ?? DEFAULTS,
     }));
     const { email, phone } = contact;
 
