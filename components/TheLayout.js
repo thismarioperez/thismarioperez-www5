@@ -9,14 +9,12 @@ import TheFooter from "@/components/TheFooter";
 import Meta from "@/components/common/Meta";
 import TheHeader from "@/components/TheHeader";
 
-export default function Layout({ preview, children }) {
+export default function Layout({ children }) {
     const router = useRouter();
     const contentRef = useRef();
-    const { headerOffset } = useStore(
-        ({ headerOffset }) => ({
-            headerOffset,
-        })
-    );
+    const { headerOffset } = useStore(({ global: { headerOffset } }) => ({
+        headerOffset,
+    }));
 
     useEffect(() => {
         const handleLinkClick = (e) => {
