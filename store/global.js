@@ -3,12 +3,6 @@ import produce from "immer";
 const NAMESPACE = "global";
 
 const initialState = {
-    social: {
-        githubUrl: "",
-        instagramUrl: "",
-        linkedinUrl: "",
-        twitterUrl: "",
-    },
     headerOffset: 0,
 };
 
