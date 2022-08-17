@@ -3,6 +3,7 @@ import styles from "./Social.module.scss";
 
 // lib
 import useStore from "@/store";
+import { shallow } from "immer";
 
 // Components
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
@@ -17,7 +18,7 @@ const DEFAULTS = {
 function Social() {
     const { socials } = useStore(({ contact }) => ({
         socials: contact?.socials ?? DEFAULTS,
-    }));
+    }), shallow);
     const _socials = Object.keys(socials).map((key) => ({
         type: key,
         url: socials[key],

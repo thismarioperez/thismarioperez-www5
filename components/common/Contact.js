@@ -1,4 +1,5 @@
 // lib
+import { shallow } from "immer";
 import useStore from "@/store";
 
 // components
@@ -13,7 +14,7 @@ const DEFAULTS = {
 export default function Contact() {
     const { contact } = useStore(({ contact }) => ({
         contact: contact ?? DEFAULTS,
-    }));
+    }), shallow);
     const { email, phone } = contact;
 
     return (

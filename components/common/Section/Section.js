@@ -7,7 +7,10 @@ import { shallow } from "immer";
 import cx from "classnames";
 
 function Section({ className, children, offset, ...props }) {
-    const headerOffset = useStore((state) => state.headerOffset, shallow);
+    const headerOffset = useStore(
+        ({ global: { headerOffset } }) => headerOffset,
+        shallow
+    );
     const style = offset
         ? {
               paddingTop: `${headerOffset}px`,
