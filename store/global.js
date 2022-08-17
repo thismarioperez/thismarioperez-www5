@@ -3,15 +3,6 @@ import produce from "immer";
 const NAMESPACE = "global";
 
 const initialState = {
-    contact: {
-        fields: {
-            email: "",
-            phone: {
-                areaCode: "",
-                phoneNumber: "",
-            },
-        },
-    },
     social: {
         githubUrl: "",
         instagramUrl: "",
