@@ -2,8 +2,10 @@ import { getPageBySlug } from "@/lib/api";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
+import { log } from "@/scripts/core";
 
 export default function Home({ data }) {
+    log('table', data);
     return (
         <div className={styles.container}>
             <Head>
@@ -88,10 +90,11 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-    const { pages } = await getPageBySlug("home");
+    const {pages} = await getPageBySlug("home");
+
     return {
         props: {
-            data: pages,
+            data: pages?.data[0] ?? {}
         },
     };
 }
