@@ -6,9 +6,9 @@ import ContentBlock from "@/components/common/ContentBlock";
 import Social from "@/components/common/Social";
 
 export default function Contact() {
-    const {contact ,social} = useStore((state) => ({
-        contact: state.contact?.fields,
-        social: state.social?.fields,
+    const { contact, social } = useStore(({ contact, social }) => ({
+        contact: contact?.data?.attributes ?? {},
+        social,
     }));
     const { email, phone } = contact;
 
@@ -24,15 +24,12 @@ export default function Contact() {
             {phone && (
                 <ContentBlock>
                     <p>
-                        phone:{" "}
-                        <a href={`tel:1${phone.areaCode}${phone.phoneNumber}`}>
-                            ({phone.areaCode}){phone.phoneNumber}
-                        </a>
+                        phone: <a href={`tel:1${phone}`}>{phone}</a>
                     </p>
                 </ContentBlock>
             )}
             <ContentBlock>
-                <Social fields={social}/>
+                <Social fields={social} />
             </ContentBlock>
         </>
     );

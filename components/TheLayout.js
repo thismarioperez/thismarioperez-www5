@@ -5,9 +5,9 @@ import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
 
 // components
-import TheFooter from "@/components/TheFooter";
 import Meta from "@/components/common/Meta";
 import TheHeader from "@/components/TheHeader";
+import TheFooter from "@/components/TheFooter";
 
 export default function Layout({ children }) {
     const router = useRouter();

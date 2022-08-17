@@ -1,7 +1,7 @@
 // components
-import Contact from "@/components/Contact";
-import Container from "@/components/Container";
-import ContentBlock from "@/components/ContentBlock";
+import Contact from "@/components/common/Contact";
+import Container from "@/components/common/Container";
+import ContentBlock from "@/components/common/ContentBlock";
 
 export default function Footer() {
     return (
