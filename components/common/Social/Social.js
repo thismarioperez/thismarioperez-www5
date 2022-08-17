@@ -2,40 +2,35 @@
 import styles from "./Social.module.scss";
 
 // lib
-import PropTypes from "prop-types";
+import useStore from "@/store";
 
 // Components
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-const socialPropTypes = {
-    fields: PropTypes.shape({
-        githubUrl: PropTypes.string,
-        instagramUrl: PropTypes.string,
-        linkedinUrl: PropTypes.string,
-        twitterUrl: PropTypes.string,
-    }),
+const DEFAULTS = {
+    github: "",
+    instagram: "",
+    linkedin: "",
+    twitter: "",
 };
 
-function Social({
-    fields = {
-        githubUrl: "",
-        instagramUrl: "",
-        linkedinUrl: "",
-        twitterUrl: "",
-    },
-}) {
-    const socials = Object.keys(fields).map((key) => ({
-        type: `${key.replace("Url", "")}`,
-        url: fields[key],
+function Social() {
+    const { socials } = useStore(({ contact }) => ({
+        socials: contact?.data?.attributes?.socials ?? DEFAULTS,
+    }));
+    const _socials = Object.keys(socials).map((key) => ({
+        type: key,
+        url: socials[key],
     }));
     return (
         <ul className={styles.social}>
-            {socials.map(({ type, url }, i) => (
+            {_socials.map(({ type, url }, i) => (
                 <li key={i} className={styles["social__item"]}>
                     <a
                         className={styles["social__link"]}
                         href={url}
                         target="_blank"
+                        rel="noreferrer"
                     >
                         {type === "github" && <FaGithub />}
                         {type === "linkedin" && <FaLinkedin />}
@@ -47,7 +42,5 @@ function Social({
         </ul>
     );
 }
-
-Social.propTypes = socialPropTypes;
 
 export default Social;

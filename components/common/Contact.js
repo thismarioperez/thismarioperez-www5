@@ -5,10 +5,14 @@ import useStore from "@/store";
 import ContentBlock from "@/components/common/ContentBlock";
 import Social from "@/components/common/Social";
 
+const DEFAULTS = {
+    phone: null,
+    email: null,
+};
+
 export default function Contact() {
-    const { contact, social } = useStore(({ contact, social }) => ({
-        contact: contact?.data?.attributes ?? {},
-        social,
+    const { contact } = useStore(({ contact }) => ({
+        contact: contact?.data?.attributes ?? DEFAULTS,
     }));
     const { email, phone } = contact;
 
@@ -29,7 +33,7 @@ export default function Contact() {
                 </ContentBlock>
             )}
             <ContentBlock>
-                <Social fields={social} />
+                <Social />
             </ContentBlock>
         </>
     );
