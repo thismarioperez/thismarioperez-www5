@@ -3,8 +3,8 @@ import { shallow } from "immer";
 import useStore from "@/store";
 
 // components
-import ContentBlock from "@/components/common/ContentBlock";
-import Social from "@/components/common/Social";
+import ContentBlock from "@/components/Common/ContentBlock";
+import Social from "@/components/Common/Social";
 
 const DEFAULTS = {
     phone: null,

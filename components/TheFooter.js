@@ -4,9 +4,9 @@ import { constants } from "@/scripts/core";
 const { GITHUB_URL } = constants;
 
 // components
-import Contact from "@/components/common/Contact";
-import Container from "@/components/common/Container";
-import ContentBlock from "@/components/common/ContentBlock";
+import Contact from "@/components/Common/Contact";
+import Container from "@/components/Common/Container";
+import ContentBlock from "@/components/Common/ContentBlock";
 
 export default function Footer() {
     return (
