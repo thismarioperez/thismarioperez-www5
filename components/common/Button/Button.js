@@ -9,6 +9,7 @@ import ConditionalWrapper from "../ConditionalWrapper";
 
 const ButtonPropTypes = {
     children: PropTypes.any,
+    className: PropTypes.string,
     as: PropTypes.elementType,
     color: PropTypes.oneOf(Object.keys(colors)),
 };
