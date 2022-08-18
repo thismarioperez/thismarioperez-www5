@@ -19,7 +19,7 @@ function Section({ className, children, offset, ...props }) {
     return (
         <section
             {...props}
-            className={cx(styles.wrapper, "-exp--3", className && className)}
+            className={cx(styles.wrapper, "-exp--3", className)}
             style={style}
         >
             {children}
