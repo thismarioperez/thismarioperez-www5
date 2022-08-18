@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { log } from "@/scripts/core";
 
 // components
-import Meta from "@/components/common/Meta";
 import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
 
@@ -46,10 +45,9 @@ export default function Layout({ children }) {
 
     return (
         <>
-            <Meta />
             <TheHeader />
-            <main ref={contentRef}>
-                <div className="-tall">{children}</div>
+            <main className="-tall" ref={contentRef}>
+                {children}
             </main>
             <TheFooter />
         </>

@@ -3,7 +3,7 @@ import { shallow } from "immer";
 import useStore from "@/store";
 
 // components
-import ContentBlock from "@/components/common/ContentBlock";
+import ContentWrapper from "@/components/common/ContentWrapper";
 import Social from "@/components/common/Social";
 
 const DEFAULTS = {
@@ -20,22 +20,22 @@ export default function Contact() {
     return (
         <>
             {email && (
-                <ContentBlock>
+                <ContentWrapper>
                     <p>
                         email: <a href={`mailto:${email}`}>{email}</a>
                     </p>
-                </ContentBlock>
+                </ContentWrapper>
             )}
             {phone && (
-                <ContentBlock>
+                <ContentWrapper>
                     <p>
                         phone: <a href={`tel:1${phone}`}>{phone}</a>
                     </p>
-                </ContentBlock>
+                </ContentWrapper>
             )}
-            <ContentBlock>
+            <ContentWrapper>
                 <Social />
-            </ContentBlock>
+            </ContentWrapper>
         </>
     );
 }

@@ -6,24 +6,24 @@ const { GITHUB_URL } = constants;
 // components
 import Contact from "@/components/common/Contact";
 import Container from "@/components/common/Container";
-import ContentBlock from "@/components/common/ContentBlock";
+import ContentWrapper from "@/components/common/ContentWrapper";
 
 export default function Footer() {
     return (
-        <footer className="-bg--dark -exp--3">
+        <footer className="-bg--secondary -exp--3">
             <Container>
-                <ContentBlock>
+                <ContentWrapper>
                     <h2>Get in touch:</h2>
-                </ContentBlock>
+                </ContentWrapper>
                 <Contact />
             </Container>
             <Container className="-exp--2">
-                <ContentBlock>
+                <ContentWrapper>
                     <h3 className="">
                         Built with Next.JS and Strapi.
                     </h3>
-                </ContentBlock>
-                <ContentBlock>
+                </ContentWrapper>
+                <ContentWrapper>
                     <p>
                         <a
                             href={GITHUB_URL}
@@ -32,7 +32,7 @@ export default function Footer() {
                             View on GitHub
                         </a>
                     </p>
-                </ContentBlock>
+                </ContentWrapper>
             </Container>
         </footer>
     );

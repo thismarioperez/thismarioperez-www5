@@ -7,7 +7,7 @@ import cx from "classnames";
 
 // components
 import Blocks from "@/components/blocks";
-import ContentBlock from "@/components/ContentBlock";
+import ContentWrapper from "@/components/ContentWrapper";
 
 const ProjectPropTypes = {
     allProjects: PropTypes.shape({
@@ -40,9 +40,9 @@ function Projects({ allProjects }) {
     });
     return (
         <>
-            <ContentBlock>
+            <ContentWrapper>
                 <h1>Projects</h1>
-            </ContentBlock>
+            </ContentWrapper>
             {projects.length > 0 &&
                 projects.map(({ blocks, id, postFields, title }, i) => {
                     const { externalUrl = null } = postFields;
@@ -51,7 +51,7 @@ function Projects({ allProjects }) {
                             className={styles.project}
                             key={id}
                         >
-                            <ContentBlock>
+                            <ContentWrapper>
                                 <h3>
                                     {externalUrl ? (
                                         <a href={externalUrl} target="_blank">
@@ -61,7 +61,7 @@ function Projects({ allProjects }) {
                                         title
                                     )}
                                 </h3>
-                            </ContentBlock>
+                            </ContentWrapper>
                             <Blocks key={id} blocks={blocks} />
                         </article>
                     );
