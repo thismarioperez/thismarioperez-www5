@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import useStore from "@/store";
 import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
+import { log } from "@/scripts/core";
 
 // components
 import Meta from "@/components/Common/Meta";
@@ -19,9 +20,9 @@ export default function Layout({ children }) {
     useEffect(() => {
         const handleLinkClick = (e) => {
             const { target } = e;
-            console.log({ href: target.href, pathname: router.pathname });
             if (/^#/.test(target.hash)) {
                 e.preventDefault();
+                core.log('log', 'Scroll to', { href: target.href, pathname: router.pathname });
                 gsap.to(window, {
                     duration: 1,
                     ease: "power2.inOut",
