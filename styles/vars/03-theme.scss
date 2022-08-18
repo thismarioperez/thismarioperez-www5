@@ -6,8 +6,8 @@ $colors: (
     dark: #1c1b22,
     light: #fff,
     // brand colors
-    brand-black: #212128,
-    brand-yellow: #fee000,
+    primary: #fee000,
+    secondary: #212128,
 );
 
 @function theme-colors($key) {

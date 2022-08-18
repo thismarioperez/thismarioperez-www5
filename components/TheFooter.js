@@ -20,7 +20,7 @@ export default function Footer() {
             <Container className="-exp--2">
                 <ContentBlock>
                     <h3 className="">
-                        Built with Next.JS and Headless Wordpress.
+                        Built with Next.JS and Strapi.
                     </h3>
                 </ContentBlock>
                 <ContentBlock>

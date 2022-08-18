@@ -64,8 +64,8 @@
     background-size: 100% 1px;
     background-position: 0 100%;
     background-image: linear-gradient(
-        theme-colors(brand-yellow),
-        theme-colors(brand-yellow)
+        theme-colors(primary),
+        theme-colors(primary)
     );
     text-decoration: none;
     transition: color duration(1) $ease, background-size duration(1) $ease;
@@ -81,7 +81,7 @@
 
 @mixin pa-touch-hover() {
     &:hover {
-        color: theme-colors(brand-black);
+        color: theme-colors(secondary);
         background-size: 100% 100%;
     }
 }
@@ -89,7 +89,7 @@
 @mixin ha() {
     display: inline;
     position: relative;
-    color: theme-colors(brand-yellow);
+    color: theme-colors(primary);
     overflow: hidden;
     text-decoration: none;
 
