@@ -5,7 +5,7 @@ import { shallow } from "immer";
 
 // components
 import ContentBlock from "@/components/Common/ContentBlock";
-import Hero from "./Hero";
+import Hero from "./Hero/Hero";
 import Interior from "./Interior";
 import ProjectsList from "./ProjectsList";
 
