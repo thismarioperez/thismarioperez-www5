@@ -66,7 +66,6 @@ export async function getStaticPaths() {
     const res = await getAllPages();
     const pages = res.pages.data;
     const slugs = pages.map(({ attributes: {slug}}) => slug);
-    console.log(slugs);
     return {
         paths:
         slugs.map(
