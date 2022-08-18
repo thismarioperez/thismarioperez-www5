@@ -6,8 +6,8 @@ import cx from "classnames";
 
 // components
 import Link from "next/link";
-import Buttons from "@/components/Common/Buttons";
-import ConditionalWrapper from "@/components/Common/ConditionalWrapper";
+import Buttons from "@/components/common/Buttons";
+import ConditionalWrapper from "@/components/common/ConditionalWrapper";
 
 export default function Hero(props) {
     const { buttons, title, subtitle, content, backgroundColor } = props;

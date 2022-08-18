@@ -5,7 +5,7 @@ import { constants } from "@/scripts/core";
 
 // components
 import Head from "next/head";
-import Blocks from "@/components/Blocks";
+import Blocks from "@/components/blocks";
 
 export default function Home({ data }) {
     log("log", "Home Page Data:", data);

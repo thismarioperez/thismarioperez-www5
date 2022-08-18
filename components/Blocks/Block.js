@@ -4,7 +4,7 @@ import useStore from "@/store";
 import { shallow } from "immer";
 
 // components
-import ContentBlock from "@/components/Common/ContentBlock";
+import ContentBlock from "@/components/common/ContentBlock";
 import Hero from "./Hero/Hero";
 import Interior from "./Interior";
 import ProjectsList from "./ProjectsList";
