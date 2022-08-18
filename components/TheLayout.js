@@ -3,11 +3,14 @@ import { useEffect, useRef } from "react";
 import useStore from "@/store";
 import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
-import { log } from "@/scripts/core";
+import { constants } from "@/scripts/core";
 
 // components
+import Meta from "@/components/common/Meta";
 import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
+
+const { SITE_NAME } = constants;
 
 export default function Layout({ children }) {
     const router = useRouter();
@@ -21,7 +24,10 @@ export default function Layout({ children }) {
             const { target } = e;
             if (/^#/.test(target.hash)) {
                 e.preventDefault();
-                core.log('log', 'Scroll to', { href: target.href, pathname: router.pathname });
+                core.log("log", "Scroll to", {
+                    href: target.href,
+                    pathname: router.pathname,
+                });
                 gsap.to(window, {
                     duration: 1,
                     ease: "power2.inOut",
@@ -45,6 +51,20 @@ export default function Layout({ children }) {
 
     return (
         <>
+            <Meta>
+                <link
+                    rel="icon"
+                    type="image/svg+xml"
+                    href="/favicon/favicon.svg"
+                />
+                <link rel="icon" type="image/png" href="/favicon/favicon.png" />
+                <link
+                    rel="alternate"
+                    type="application/rss+xml"
+                    href="/feed.xml"
+                />
+                <meta name="description" content={`${SITE_NAME}`} />
+            </Meta>
             <TheHeader />
             <main className="-tall" ref={contentRef}>
                 {children}

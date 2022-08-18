@@ -4,7 +4,7 @@ import { log } from "@/scripts/core";
 import { constants } from "@/scripts/core";
 
 // components
-import Head from "next/head";
+import Meta from "@/components/common/Meta";
 import Blocks from "@/components/blocks";
 
 export default function Home({ data }) {
@@ -14,9 +14,9 @@ export default function Home({ data }) {
     } = data;
     return (
         <>
-            <Head>
+            <Meta>
                 <title>{`${constants.SITE_NAME} | ${title}`}</title>
-            </Head>
+            </Meta>
             <Blocks blocks={blocks} />
         </>
     );
