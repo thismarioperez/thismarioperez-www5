@@ -15,9 +15,7 @@ export default function Home({ data }) {
     return (
         <>
             <Head>
-                <title>
-                    {constants.SITE_NAME} | {title}
-                </title>
+                <title>{`${constants.SITE_NAME} | ${title}`}</title>
             </Head>
             <Blocks blocks={blocks} />
         </>
