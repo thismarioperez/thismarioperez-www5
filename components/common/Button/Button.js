@@ -1,5 +1,5 @@
 import styles from "./Button.module.scss";
-import colors from "@/styles/exports/theme.module.scss";
+import colors from "@/styles/exports/colors.module.scss";
 
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -14,16 +14,16 @@ const ButtonPropTypes = {
     color: PropTypes.oneOf(Object.keys(colors)),
 };
 
-const Button = ({ className = "", color, children, as, ...props }) => {
+const Button = ({ className = "", color, children, as, ...rest }) => {
     const Component = as;
     return (
         <ConditionalWrapper
             condition={as === "a"}
-            wrapper={(children) => <Link href={props.href}>{children}</Link>}
+            wrapper={(children) => <Link href={rest.href}>{children}</Link>}
         >
             <Component
                 className={cx(styles.button, `-bg--${color}`, className)}
-                {...props}
+                {...rest}
             >
                 {children}
             </Component>
