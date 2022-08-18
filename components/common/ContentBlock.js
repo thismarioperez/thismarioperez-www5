@@ -6,14 +6,14 @@ import { useRef } from "react";
 // components
 import { CSSTransition } from "react-transition-group";
 
-function ContentBlock({ children }) {
+function ContentBlock({ children, ...props }) {
     const { ref, inView } = useInView({
         threshold: 0.6,
         // triggerOnce: true,
     });
     const _ref = useRef(null);
     return (
-        <div className="block" ref={ref}>
+        <div className="block" ref={ref} {...props}>
             <CSSTransition
                 classNames="content"
                 in={inView}
