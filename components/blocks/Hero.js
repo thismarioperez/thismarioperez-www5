@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import Buttons from "@/components/common/Buttons";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import Section from "@/components/common/Section";
+import MarkdownRenderer from "../common/MarkdownRenderer";
 
 const HeroPropTypes = {
     buttons: PropTypes.arrayOf(PropTypes.shape({ value: PropTypes.string })),
@@ -34,6 +35,11 @@ function Hero({ buttons, title, subtitle, content, backgroundColor, ...rest }) {
                 {subtitle && (
                     <ContentWrapper>
                         <h3>{subtitle}</h3>
+                    </ContentWrapper>
+                )}
+                {content && (
+                    <ContentWrapper>
+                        <MarkdownRenderer>{content}</MarkdownRenderer>
                     </ContentWrapper>
                 )}
                 {buttons && buttons.length > 0 && (
