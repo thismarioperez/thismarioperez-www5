@@ -15,6 +15,14 @@ button,
     }
 }
 
+.button--contained {
+    max-width: 100%;
+
+    @include small {
+        max-width: rem-calc(250px);
+    }
+}
+
 .button--empty {
     padding: 0;
     border: 0;
