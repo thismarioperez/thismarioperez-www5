@@ -11,7 +11,7 @@ import { CSSTransition } from "react-transition-group";
 function ContentWrapper({ children, ...rest }) {
     const { ref, inView } = useInView({
         threshold: 0.6,
-        // triggerOnce: true,
+        triggerOnce: true,
     });
     const _ref = useRef(null);
     return (
