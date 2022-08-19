@@ -39,7 +39,9 @@ function Hero({ buttons, title, subtitle, content, backgroundColor, ...rest }) {
                 )}
                 {content && (
                     <ContentWrapper>
+                        <div className="-exp">
                         <MarkdownRenderer>{content}</MarkdownRenderer>
+                        </div>
                     </ContentWrapper>
                 )}
                 {buttons && buttons.length > 0 && (
