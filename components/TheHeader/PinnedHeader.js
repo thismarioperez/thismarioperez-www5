@@ -38,7 +38,7 @@ function PinnedHeader() {
     return (
         <header ref={ref} className={styles.wrapper}>
             <Alert />
-            <div className={cx(styles.inner, "-exp")}>
+            <div className={cx(styles.inner)}>
                 <div className={styles.branding}>
                     <Link href="/">
                         <a>
