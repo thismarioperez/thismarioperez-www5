@@ -3,9 +3,9 @@ import styles from "./PinnedHeader.module.scss";
 
 // lib
 import useStore from "@/store";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import cx from "classnames";
-import useRefDimensions from "@/hooks/useRefDimensions";
+import useDimensions from "@/hooks/useDimensions";
 import useWindowScrollDirection, {
     DIRECTIONS,
 } from "@/hooks/useWindowScrollDirection";
@@ -23,12 +23,11 @@ function PinnedHeader() {
         })
     );
     const direction = useWindowScrollDirection();
-    const ref = useRef();
-    const { height = 0 } = useRefDimensions(ref);
+    const [ref, { height }] = useDimensions();
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
-        setHeaderOffset(height);
+        setHeaderOffset(Math.floor(height));
     }, [height]);
 
     useEffect(() => {
@@ -36,9 +35,9 @@ function PinnedHeader() {
     }, [direction]);
 
     return (
-        <header ref={ref} className={styles.wrapper}>
+        <header className={styles.wrapper} ref={ref}>
             <Alert />
-            <div className={cx(styles.inner)}>
+            <div className={cx(styles.inner)} >
                 <div className={styles.branding}>
                     <Link href="/">
                         <a>
