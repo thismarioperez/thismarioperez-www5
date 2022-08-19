@@ -5,9 +5,28 @@ $colors: (
     // base colors
     dark: #1c1b22,
     light: #fff,
+
     // brand colors
+    // Main Primary color */
     primary: #fee000,
+
+
+    // Main Secondary color */
     secondary: #212128,
+);
+
+$dark: dark secondary;
+$light: light primary;
+
+$accents: (
+    primary1: #ffed63,
+    primary2: #ffe839,
+    primary3: #c5ae00,
+    primary4: #9b8900,
+    secondary1: #646476,
+    secondary2: #464654,
+    secondary3: #161624,
+    secondary4: #0f0f21
 );
 
 @function theme-colors($key) {
