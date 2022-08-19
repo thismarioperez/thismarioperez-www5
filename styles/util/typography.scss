@@ -169,3 +169,12 @@
     @include font-headline();
     font-style: italic;
 }
+
+
+@mixin button {
+    font-family: $font-family;
+    font-weight: 500;
+    font-size: rem-calc(14);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
