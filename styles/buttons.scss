@@ -1,3 +1,5 @@
+@use "sass:color";
+
 button,
 .button {
     cursor: pointer;
@@ -13,45 +15,22 @@ button,
     }
 }
 
-.button-empty {
+.button--empty {
     padding: 0;
     border: 0;
     background: transparent;
     line-height: 1;
 }
 
-.button-default {
+.button--default {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding-top: rem-calc(14);
-    padding-right: rem-calc(28);
-    padding-bottom: rem-calc(14);
-    padding-left: rem-calc(28);
-
-    border: 2px solid transparent;
-    background-color: transparent;
-    border-radius: 0;
-
-    @include button;
-    text-align: center;
-
-    &.button-no-padding {
-        padding: 0;
-        align-self: center;
-    }
-}
-
-.button-thin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding-top: rem-calc(14);
-    padding-right: rem-calc(12);
-    padding-bottom: rem-calc(14);
-    padding-left: rem-calc(12);
+    padding-top: rem-calc(16);
+    padding-right: rem-calc(32);
+    padding-bottom: rem-calc(16);
+    padding-left: rem-calc(32);
 
     border: 2px solid transparent;
     background-color: transparent;
@@ -61,47 +40,64 @@ button,
     text-align: center;
 }
 
-.button-radius {
+.button--thin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: rem-calc(8);
+    padding-right: rem-calc(16);
+    padding-bottom: rem-calc(8);
+    padding-left: rem-calc(16);
+
+    border: 2px solid transparent;
+    background-color: transparent;
+    border-radius: 0;
+
+    @include button;
+    text-align: center;
+}
+
+.button--radius {
     border-radius: rem-calc(5);
 }
 
+@each $name, $color in $colors {
+    .button--#{$name} {
+        background-color: $color;
 
-// @each $name, $color in $colors {
-//     .button-#{$name} {
-//         background-color: $color;
+        @if index($dark, $name) {
+            color: white;
+        } @else if index($light, $name) {
+            color: theme-colors(dark);
+        } @else {
+            color: inherit;
+        }
 
-//         @if index($dark, $name) {
-//             color: white;
-//         } @else if index($bright, $name) {
-//             color: theme-colors(dark);
-//         } @else {
-//             color: inherit;
-//         }
+        &:hover {
+            background-color: color.scale($color, $lightness: -30%);
+        }
+    }
 
-//         &:hover {
-//             background-color: color.scale($color, $lightness: -30%);
-//         }
-//     }
+    .button--hollow--#{$name} {
+        border-color: $color;
 
-//     .button-hollow-#{$name} {
-//         border-color: $color;
+        @if $name == "none" {
+            color: inherit;
+        } @else {
+            color: $color;
+        }
 
-//         @if $name == "none" {
-//             color: inherit;
-//         } @else {
-//             color: $color;
-//         }
+        &:hover {
+            background-color: $color;
 
-//         &:hover {
-//             background-color: $color;
-
-//             @if index($dark, $name) {
-//                 color: white;
-//             } @else if index($bright, $name) {
-//                 color: theme-colors(dark);
-//             } @else {
-//                 color: inherit;
-//             }
-//         }
-//     }
-// }
+            @if index($dark, $name) {
+                color: white;
+            } @else if index($light, $name) {
+                color: theme-colors(dark);
+            } @else {
+                color: inherit;
+            }
+        }
+    }
+}
