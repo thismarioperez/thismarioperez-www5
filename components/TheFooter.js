@@ -17,7 +17,7 @@ export default function Footer() {
                 </ContentWrapper>
                 <Contact />
             </Container>
-            <Container className="-exp--t2">
+            <Container className="-exp--t">
                 <ContentWrapper>
                     <h3 className="">
                         Built with Next.JS and Strapi.
