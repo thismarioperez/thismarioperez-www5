@@ -34,7 +34,7 @@ function Hero({ buttons, title, subtitle, content, backgroundColor, ...rest }) {
                 )}
                 {subtitle && (
                     <ContentWrapper>
-                        <h3>{subtitle}</h3>
+                        <h2>{subtitle}</h2>
                     </ContentWrapper>
                 )}
                 {content && (
