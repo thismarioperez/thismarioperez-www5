@@ -1,6 +1,5 @@
 // lib
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import useStore from "@/store";
 import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
@@ -8,10 +7,8 @@ import { constants } from "@/scripts/core";
 
 // components
 import Meta from "@/components/common/Meta";
+import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
-const TheHeader = dynamic(() => import("@/components/TheHeader"), {
-    ssr: false,
-});
 
 const { SITE_NAME } = constants;
 
