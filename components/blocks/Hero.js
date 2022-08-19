@@ -27,19 +27,21 @@ function Hero({ buttons, title, subtitle, content, backgroundColor, ...rest }) {
             {...rest}
         >
             <div className="container">
-                {title && (
-                    <ContentWrapper>
-                        <h1>{title}</h1>
-                    </ContentWrapper>
-                )}
                 {subtitle && (
                     <ContentWrapper>
-                        <h2>{subtitle}</h2>
+                        <div className="-exp--b">
+                            <h3>{subtitle}</h3>
+                        </div>
+                    </ContentWrapper>
+                )}
+                {title && (
+                    <ContentWrapper className="-exp--b">
+                        <h1>{title}</h1>
                     </ContentWrapper>
                 )}
                 {content && (
                     <ContentWrapper>
-                        <div className="-exp">
+                        <div className="-exp--b">
                             <MarkdownRenderer>{content}</MarkdownRenderer>
                         </div>
                     </ContentWrapper>
