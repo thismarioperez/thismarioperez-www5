@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 
 // components
-import Blocks from "@/components/_blocks";
+import Blocks from "@/components/blocks";
 import ContentWrapper from "@/components/ContentWrapper";
 
 const ProjectPropTypes = {
