@@ -1,0 +1,40 @@
+$expander: (
+    xxsmall: rem-calc(32px),
+    medium: rem-calc(48px),
+    xxlarge: rem-calc(64px),
+    huge: rem-calc(72px),
+);
+
+@function expander($key) {
+    @return map-get($map: $expander, $key: $key);
+}
+
+@mixin exp-paddify($sides: top bottom, $modifier: 1) {
+    @each $breakpoint, $size in $expander {
+        @include breakpoint($breakpoint) {
+            @each $side in $sides {
+                padding-#{$side}: $size * $modifier;
+            }
+        }
+    }
+}
+@mixin exp() {
+    $modifiers: (1, 2, 3);
+    $directions:(
+        't': top,
+        'b': bottom,
+    );
+
+    @include exp-paddify();
+
+    @each $modifier in $modifiers {
+        &--#{$modifier} {
+            @include exp-paddify(top bottom, $modifier);
+        }
+        @each $key, $value in $directions {
+            &--#{$key}#{$modifier} {
+                @include exp-paddify($sides: $value, $modifier:$modifier);
+            }
+        }
+    }
+}

@@ -2,16 +2,7 @@
  * Display
 *******************************************************************************/
 .-exp {
-    &,
-    &--1 {
-        @include exp();
-    }
-    &--2 {
-        @include exp-2();
-    }
-    &--3 {
-        @include exp-3();
-    }
+    @include exp();
 }
 .-vtop {
     vertical-align: top;

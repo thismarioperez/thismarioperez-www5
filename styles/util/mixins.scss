@@ -32,15 +32,3 @@
     padding-left: $wrap-media;
     padding-right: $wrap-media;
 }
-@mixin exp() {
-    padding-top: expander(1);
-    padding-bottom: expander(1);
-}
-@mixin exp-2() {
-    padding-top: expander(2);
-    padding-bottom: expander(2);
-}
-@mixin exp-3() {
-    padding-top: expander(3);
-    padding-bottom: expander(3);
-}
