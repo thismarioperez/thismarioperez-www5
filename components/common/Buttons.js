@@ -1,4 +1,4 @@
-import Button from "./Button/Button";
+import Button from "./Button";
 
 export default function Buttons({ buttons = [] }) {
     const _buttons = buttons.map(({ color, ...button }) => {
