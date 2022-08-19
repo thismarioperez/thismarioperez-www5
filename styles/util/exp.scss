@@ -20,9 +20,9 @@ $expander: (
 }
 @mixin exp() {
     $modifiers: (1, 2, 3);
-    $directions:(
-        't': top,
-        'b': bottom,
+    $directions: (
+        "t": top,
+        "b": bottom,
     );
 
     @include exp-paddify();
@@ -32,8 +32,11 @@ $expander: (
             @include exp-paddify(top bottom, $modifier);
         }
         @each $key, $value in $directions {
+            &--#{$key} {
+                @include exp-paddify($sides: $value);
+            }
             &--#{$key}#{$modifier} {
-                @include exp-paddify($sides: $value, $modifier:$modifier);
+                @include exp-paddify($sides: $value, $modifier: $modifier);
             }
         }
     }
