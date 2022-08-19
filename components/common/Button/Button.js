@@ -12,9 +12,11 @@ const ButtonPropTypes = {
     className: PropTypes.string,
     as: PropTypes.elementType,
     color: PropTypes.oneOf(Object.keys(colors)),
+    type: PropTypes.oneOf(["default", "thin", "empty"]),
+    round: PropTypes.oneOf([true, false]),
 };
 
-const Button = ({ className = "", color, children, as, ...rest }) => {
+const Button = ({ as, className, color, children, round, type, ...rest }) => {
     const Component = as;
     return (
         <ConditionalWrapper
@@ -22,7 +24,13 @@ const Button = ({ className = "", color, children, as, ...rest }) => {
             wrapper={(children) => <Link href={rest.href}>{children}</Link>}
         >
             <Component
-                className={cx(styles.button, `-bg--${color}`, className)}
+                className={cx(
+                    styles.button,
+                    `button--${type}`,
+                    `button--${color}`,
+                    round && "button--radius",
+                    className
+                )}
                 {...rest}
             >
                 {children}
@@ -36,6 +44,8 @@ Button.propTypes = ButtonPropTypes;
 Button.defaultProps = {
     as: "button",
     color: "primary",
+    type: "default",
+    round: true,
 };
 
 export default Button;
