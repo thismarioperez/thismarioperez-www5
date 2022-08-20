@@ -75,7 +75,7 @@ button,
         background-color: $color;
 
         @if index($dark, $name) {
-            color: white;
+            color: theme-colors(light);
         } @else if index($light, $name) {
             color: theme-colors(dark);
         } @else {
@@ -100,7 +100,7 @@ button,
             background-color: $color;
 
             @if index($dark, $name) {
-                color: white;
+                color: theme-colors(light);
             } @else if index($light, $name) {
                 color: theme-colors(dark);
             } @else {
