@@ -115,7 +115,7 @@
 }
 
 @mixin pp() {
-    margin-top: expander(1) / 2;
+    margin-top: rem-calc($base-font-size);
 }
 
 @mixin h1() {
