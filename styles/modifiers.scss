@@ -19,8 +19,11 @@
 .-block {
     display: block;
 }
-.-pointer {
-    cursor: pointer;
+$cursors: (default, pointer);
+@each $cursor in $cursors {
+    .-cursor--#{$cursor} {
+        cursor: $cursor;
+    }
 }
 .-cutoff {
     max-width: $wrap-copy;
