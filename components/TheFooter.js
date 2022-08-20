@@ -7,33 +7,33 @@ const { GITHUB_URL } = constants;
 import Contact from "@/components/common/Contact";
 import Container from "@/components/common/Container";
 import ContentWrapper from "@/components/common/ContentWrapper";
+import Section from "./common/Section";
 
 export default function Footer() {
     return (
-        <footer className="-bg--secondary -exp--3">
-            <Container>
-                <ContentWrapper>
-                    <h2>Get in touch:</h2>
-                </ContentWrapper>
-                <Contact />
-            </Container>
-            <Container className="-exp--t">
-                <ContentWrapper>
-                    <h3 className="">
-                        Built with Next.JS and Strapi.
-                    </h3>
-                </ContentWrapper>
-                <ContentWrapper>
-                    <p>
-                        <a
-                            href={GITHUB_URL}
-                            className=""
-                        >
-                            View on GitHub
-                        </a>
-                    </p>
-                </ContentWrapper>
-            </Container>
+        <footer className="-bg--secondary">
+            <Section>
+                <Container>
+                    <ContentWrapper className="-exp--b">
+                        <h2>Get in touch:</h2>
+                        <Contact />
+                    </ContentWrapper>
+                    <ContentWrapper>
+                        <h3>Built with Next.JS and Strapi.</h3>
+                    </ContentWrapper>
+                    <ContentWrapper>
+                        <p>
+                            <a
+                                href={GITHUB_URL}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                View on GitHub
+                            </a>
+                        </p>
+                    </ContentWrapper>
+                </Container>
+            </Section>
         </footer>
     );
 }
