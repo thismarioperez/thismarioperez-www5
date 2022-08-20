@@ -12,30 +12,28 @@ const DEFAULTS = {
 };
 
 export default function Contact() {
-    const { contact } = useStore(({ contact }) => ({
-        contact: contact ?? DEFAULTS,
-    }), shallow);
+    const { contact } = useStore(
+        ({ contact }) => ({
+            contact: contact ?? DEFAULTS,
+        }),
+        shallow
+    );
     const { email, phone } = contact;
 
     return (
         <>
             {email && (
-                <ContentWrapper>
-                    <p>
-                        email: <a href={`mailto:${email}`}>{email}</a>
-                    </p>
-                </ContentWrapper>
+                <p>
+                    email: <a href={`mailto:${email}`}>{email}</a>
+                </p>
             )}
             {phone && (
-                <ContentWrapper>
-                    <p>
-                        phone: <a href={`tel:1${phone}`}>{phone}</a>
-                    </p>
-                </ContentWrapper>
+                <p>
+                    phone: <a href={`tel:1${phone}`}>{phone}</a>
+                </p>
             )}
-            <ContentWrapper>
-                <Social />
-            </ContentWrapper>
+
+            <Social />
         </>
     );
 }
