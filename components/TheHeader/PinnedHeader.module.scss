@@ -11,9 +11,18 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     position: relative;
     width: 100%;
+
+    &__left {
+        padding-right: $container-padding / 2;
+    }
+
+    &__right {
+        padding: $nudge $container-padding $nudge
+            $container-padding / 2;
+    }
 }
 
 .branding {
@@ -30,7 +39,7 @@
 .logo {
     position: relative;
     // padding: $nudge ($nudge / 2);
-    padding: $nudge $container-padding;
+    padding: $nudge $nudge $nudge $container-padding;
 
     svg {
         fill: #fff;

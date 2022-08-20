@@ -15,13 +15,12 @@ import Alert from "./Alert";
 import Logo from "./Logo";
 import LogoMark from "./LogoMark";
 import Link from "next/link";
+import CurrentPage from "./CurrentPage";
 
 function PinnedHeader() {
-    const { setHeaderOffset = () => {} } = useStore(
-        ({ setHeaderOffset }) => ({
-            setHeaderOffset,
-        })
-    );
+    const { setHeaderOffset = () => {} } = useStore(({ setHeaderOffset }) => ({
+        setHeaderOffset,
+    }));
     const direction = useWindowScrollDirection();
     const [ref, { height }] = useDimensions();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -37,21 +36,26 @@ function PinnedHeader() {
     return (
         <header className={styles.wrapper} ref={ref}>
             <Alert />
-            <div className={cx(styles.inner, '-exp--1/2')} >
-                <div className={styles.branding}>
-                    <Link href="/">
-                        <a>
-                            <div
-                                className={cx(
-                                    styles.logo,
-                                    isScrolled && styles["logo--scrolled"]
-                                )}
-                            >
-                                <Logo />
-                                <LogoMark />
-                            </div>
-                        </a>
-                    </Link>
+            <div className={cx(styles.inner, "-exp--1/2")}>
+                <div className={styles.innerLeft}>
+                    <div className={styles.branding}>
+                        <Link href="/">
+                            <a>
+                                <div
+                                    className={cx(
+                                        styles.logo,
+                                        isScrolled && styles.logoScrolled
+                                    )}
+                                >
+                                    <Logo />
+                                    <LogoMark />
+                                </div>
+                            </a>
+                        </Link>
+                    </div>
+                </div>
+                <div className={styles.innerRight}>
+                    <CurrentPage className={styles.currentPageIndicator} />
                 </div>
             </div>
         </header>
