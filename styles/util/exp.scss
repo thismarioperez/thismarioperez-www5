@@ -1,7 +1,7 @@
 @use "sass:math";
 
 $expander: (
-    xxsmall: rem-calc(32px),
+    0: rem-calc(32px),
     medium: rem-calc(48px),
     xxlarge: rem-calc(56px),
     huge: rem-calc(64px),
@@ -13,9 +13,15 @@ $expander: (
 
 @mixin exp-paddify($sides: top bottom, $modifier: 1) {
     @each $breakpoint, $size in $expander {
-        @include breakpoint($breakpoint) {
+        @if $breakpoint == 0 {
             @each $side in $sides {
                 padding-#{$side}: $size * $modifier;
+            }
+        } @else {
+            @include breakpoint($breakpoint) {
+                @each $side in $sides {
+                    padding-#{$side}: $size * $modifier;
+                }
             }
         }
     }
