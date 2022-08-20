@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $expander: (
     xxsmall: rem-calc(32px),
     medium: rem-calc(48px),
@@ -19,7 +21,13 @@ $expander: (
     }
 }
 @mixin exp() {
-    $modifiers: (1, 2, 3);
+    $modifiers: (
+        '1/2': 0.5,
+        '0.5': 0.5,
+        '1': 1,
+        '2': 2,
+        '3': 3
+    );
     $directions: (
         "t": top,
         "b": bottom,
@@ -27,16 +35,16 @@ $expander: (
 
     @include exp-paddify();
 
-    @each $modifier in $modifiers {
-        &--#{$modifier} {
-            @include exp-paddify(top bottom, $modifier);
+    @each $modKey, $modVal in $modifiers {
+        &--#{escape($modKey)} {
+            @include exp-paddify(top bottom, $modVal);
         }
         @each $key, $value in $directions {
             &--#{$key} {
-                @include exp-paddify($sides: $value);
+                @include exp-paddify($value);
             }
-            &--#{$key}#{$modifier} {
-                @include exp-paddify($sides: $value, $modifier: $modifier);
+            &--#{$key}--#{escape($modKey)} {
+                @include exp-paddify($value, $modVal);
             }
         }
     }
