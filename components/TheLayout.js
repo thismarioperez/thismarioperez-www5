@@ -9,7 +9,7 @@ import { constants } from "@/scripts/core";
 import Meta from "@/components/common/Meta";
 import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
-import TheMenuButton from "./TheMenuButton";
+import TheMenuButton from "@/components/TheMenuButton";
 
 const { SITE_NAME } = constants;
 

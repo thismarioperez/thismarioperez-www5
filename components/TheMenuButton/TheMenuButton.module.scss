@@ -17,26 +17,54 @@
         0: 24px,
         medium: 16px,
     );
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
     position: relative;
 
     @each $bp, $val in $size {
         @if $bp == 0 {
             width: rem-calc($val);
-            height: rem-calc($val - 3px);
+            height: rem-calc($val);;
         } @else {
             @include breakpoint($bp) {
                 width: rem-calc($val);
-                height: rem-calc($val - 3px);
+                height: rem-calc($val);;
             }
         }
     }
-}
 
-.line {
-    width: 100%;
-    height: rem-calc(1px);
-    background-color: currentColor;
+    .line {
+        height: 2px;
+        background-color: currentColor;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        transition: all duration(1) $ease, transform duration(1) $ease;
+
+        &:nth-child(1) {
+            width: 50%;
+        }
+        &:nth-child(2) {
+            width: 100%;
+        }
+        &:nth-child(3) {
+            width: 75%;
+        }
+    }
+
+    &--close {
+        .line:nth-child(1) {
+            transform-origin:bottom;
+            transform:rotatez(45deg) translate(2px, 1px)
+        }
+        .line:nth-child(2) {
+            transform-origin:center;
+            transform:rotatez(-45deg)
+        }
+        .line:nth-child(3) {
+            // transform-origin:bottom;
+            width:50%;
+            transform: translate(10px, -2px) rotatez(45deg);
+        }
+    }
 }
