@@ -1,4 +1,6 @@
-import Button from "./Button";
+import styles from "./Buttons.module.scss";
+
+import Button from "@/components/common/Button";
 
 export default function Buttons({ buttons = [] }) {
     const _buttons = buttons.map(({ color, ...button }) => {
@@ -14,7 +16,7 @@ export default function Buttons({ buttons = [] }) {
     });
 
     return (
-        <>
+        <div className={styles.wrapper}>
             {_buttons.map((button, i) => {
                 return (
                     <Button key={i} {...button}>
@@ -22,6 +24,6 @@ export default function Buttons({ buttons = [] }) {
                     </Button>
                 );
             })}
-        </>
+        </div>
     );
 }
