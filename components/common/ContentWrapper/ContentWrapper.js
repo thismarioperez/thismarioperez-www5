@@ -4,18 +4,19 @@ import styles from "./ContentWrapper.module.scss";
 import durations from "@/styles/exports/durations.module.scss";
 import { useInView } from "react-intersection-observer";
 import { useRef } from "react";
+import cx from "classnames";
 
 // components
 import { CSSTransition } from "react-transition-group";
 
-function ContentWrapper({ children, ...rest }) {
+function ContentWrapper({ className, children, ...rest }) {
     const { ref, inView } = useInView({
         threshold: 0.6,
         triggerOnce: true,
     });
     const _ref = useRef(null);
     return (
-        <div className={styles.wrapper} ref={ref} {...rest}>
+        <div className={cx(styles.wrapper, className)} ref={ref} {...rest}>
             <CSSTransition
                 in={inView}
                 timeout={parseInt(durations["2"])}
