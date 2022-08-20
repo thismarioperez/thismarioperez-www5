@@ -11,11 +11,11 @@ import useWindowScrollDirection, {
 } from "@/hooks/useWindowScrollDirection";
 
 // components
-import Alert from "./Alert";
-import Logo from "./Logo";
-import LogoMark from "./LogoMark";
+import Alert from "@/components/TheHeader/Alert";
+import Logo from "@/components/TheHeader/Logo";
+import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
-import CurrentPage from "./CurrentPage";
+import PageIndicator from "@/components/TheHeader/PageIndicator";
 
 function PinnedHeader() {
     const { setHeaderOffset = () => {} } = useStore(({ setHeaderOffset }) => ({
@@ -55,7 +55,9 @@ function PinnedHeader() {
                     </div>
                 </div>
                 <div className={styles.innerRight}>
-                    <CurrentPage className={styles.currentPageIndicator} />
+                    <div className={styles.innerRightContent}>
+                        <PageIndicator />
+                    </div>
                 </div>
             </div>
         </header>

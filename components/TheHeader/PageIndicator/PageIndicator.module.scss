@@ -1,0 +1,15 @@
+.wrapper {
+    position: relative;
+}
+
+.inner {
+    padding: $nudge;
+    min-width: $container-padding;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

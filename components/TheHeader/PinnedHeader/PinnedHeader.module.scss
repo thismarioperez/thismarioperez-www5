@@ -20,8 +20,14 @@
     }
 
     &__right {
-        padding: $nudge $container-padding $nudge
+        padding: 0 $container-padding 0
             $container-padding / 2;
+
+            &__content {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+            }
     }
 }
 
