@@ -3,8 +3,8 @@
 $expander: (
     xxsmall: rem-calc(32px),
     medium: rem-calc(48px),
-    xxlarge: rem-calc(64px),
-    huge: rem-calc(72px),
+    xxlarge: rem-calc(56px),
+    huge: rem-calc(64px),
 );
 
 @function expander($key) {
