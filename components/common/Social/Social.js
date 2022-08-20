@@ -16,9 +16,12 @@ const DEFAULTS = {
 };
 
 function Social() {
-    const { socials } = useStore(({ contact }) => ({
-        socials: contact?.socials ?? DEFAULTS,
-    }), shallow);
+    const { socials } = useStore(
+        ({ contact }) => ({
+            socials: contact?.socials ?? DEFAULTS,
+        }),
+        shallow
+    );
     const _socials = Object.keys(socials).map((key) => ({
         type: key,
         url: socials[key],
@@ -26,9 +29,9 @@ function Social() {
     return (
         <ul className={styles.social}>
             {_socials.map(({ type, url }, i) => (
-                <li key={i} className={styles["social__item"]}>
+                <li key={i} className={styles.socialItem}>
                     <a
-                        className={styles["social__link"]}
+                        className={styles.socialLink}
                         href={url}
                         target="_blank"
                         rel="noreferrer"
