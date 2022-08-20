@@ -17,21 +17,21 @@ const initialState = {
 const createContact = (set, get) => ({
     [NAMESPACE]: {
         ...initialState,
-    },
-    fetchContact: async () => {
-        const res = await getContact();
-        let _data = {};
-        if (
-            res.contact?.data?.attributes &&
-            Object.keys(res.contact.data.attributes).length > 0
-        ) {
-            _data = res.contact.data.attributes;
-        }
-        set(
-            produce((state) => {
-                state[NAMESPACE] = _data;
-            })
-        );
+        fetchContact: async () => {
+            const res = await getContact();
+            let _data = {};
+            if (
+                res.contact?.data?.attributes &&
+                Object.keys(res.contact.data.attributes).length > 0
+            ) {
+                _data = res.contact.data.attributes;
+            }
+            set(
+                produce((state) => {
+                    state[NAMESPACE] = _data;
+                })
+            );
+        },
     },
 });
 

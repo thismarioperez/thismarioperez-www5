@@ -17,18 +17,18 @@ const initialState = {
 const createNavigations = (set, get) => ({
     [NAMESPACE]: {
         ...initialState,
-    },
-    fetchNavigations: async () => {
-        const res = await getAllNavigations();
-        let _data = [];
-        if (res.navigations?.data?.length > 0) {
-            _data = res.navigations.data;
-        }
-        set(
-            produce((state) => {
-                state[NAMESPACE].data = _data;
-            })
-        );
+        fetchNavigations: async () => {
+            const res = await getAllNavigations();
+            let _data = [];
+            if (res.navigations?.data?.length > 0) {
+                _data = res.navigations.data;
+            }
+            set(
+                produce((state) => {
+                    state[NAMESPACE].data = _data;
+                })
+            );
+        },
     },
 });
 
