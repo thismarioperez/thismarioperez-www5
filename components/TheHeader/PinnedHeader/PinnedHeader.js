@@ -2,6 +2,7 @@
 import styles from "./PinnedHeader.module.scss";
 
 // lib
+import dynamic from "next/dynamic";
 import useStore from "@/store";
 import { useEffect, useState } from "react";
 import cx from "classnames";
@@ -15,7 +16,13 @@ import Alert from "@/components/TheHeader/Alert";
 import Logo from "@/components/TheHeader/Logo";
 import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
-import PageIndicator from "@/components/TheHeader/PageIndicator";
+
+const PageIndicator = dynamic(
+    () => import("@/components/TheHeader/PageIndicator"),
+    {
+        ssr: false,
+    }
+);
 
 function PinnedHeader() {
     const { setHeaderOffset = () => {} } = useStore(
@@ -42,19 +49,19 @@ function PinnedHeader() {
             <Alert />
             <div className={cx(styles.inner, styles.branding)}>
                 <div className={cx(styles.innerLeft)}>
-                        <Link href="/">
-                            <a>
-                                <div
-                                    className={cx(
-                                        styles.logo,
-                                        isScrolled && styles.logoScrolled
-                                    )}
-                                >
-                                    <Logo />
-                                    <LogoMark />
-                                </div>
-                            </a>
-                        </Link>
+                    <Link href="/">
+                        <a>
+                            <div
+                                className={cx(
+                                    styles.logo,
+                                    isScrolled && styles.logoScrolled
+                                )}
+                            >
+                                <Logo />
+                                <LogoMark />
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div className={styles.innerRight}>
                     <div className={styles.innerRightContent}>
