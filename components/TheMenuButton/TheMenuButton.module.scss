@@ -7,8 +7,7 @@
 
 .button {
     padding: $nudge;
-    border-bottom: none;
-    border-right: none;
+    border-color: transparent;
 
     &:hover {
         background-color: theme-colors(primary);
@@ -33,7 +32,7 @@
         background-color: currentColor;
         transform: translate3d(0, 0, 0);
         opacity: 1;
-        transition: all duration(1) $ease, transform duration(1) $ease;
+        transition: all duration(1) ease(1), transform duration(1) ease(1);
 
         &:nth-child(1) {
             width: 50%;
