@@ -7,9 +7,9 @@ import useStore from "@/store";
 import { useEffect, useState } from "react";
 import cx from "classnames";
 import useDimensions from "@/hooks/useDimensions";
-import useWindowScrollDirection, {
+import useWindowScrollPosition, {
     DIRECTIONS,
-} from "@/hooks/useWindowScrollDirection";
+} from "@/hooks/useWindowScrollPosition";
 
 // components
 import Alert from "@/components/TheHeader/Alert";
@@ -25,12 +25,13 @@ const PageIndicator = dynamic(
 );
 
 function TheHeader() {
-    const { setHeaderOffset = () => {} } = useStore(
-        ({ global: { setHeaderOffset } }) => ({
+    const { headerOffset, setHeaderOffset = () => {} } = useStore(
+        ({ global: { headerOffset, setHeaderOffset } }) => ({
+            headerOffset,
             setHeaderOffset,
         })
     );
-    const direction = useWindowScrollDirection();
+    const { y } = useWindowScrollPosition();
     const [ref, { height }] = useDimensions();
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -38,19 +39,22 @@ function TheHeader() {
         if (height) {
             setHeaderOffset(Math.floor(height));
         }
-    }, [height]);
+    }, [height, setHeaderOffset]);
 
     useEffect(() => {
-        setIsScrolled(direction === DIRECTIONS.DOWN);
-    }, [direction]);
+        setIsScrolled(y > headerOffset);
+    }, [y, headerOffset]);
 
     return (
-        <header
-            className={styles.wrapper}
-            ref={ref}
-        >
+        <header className={styles.wrapper} ref={ref}>
             <Alert />
-            <div className={cx(styles.inner, styles.branding)}>
+            <div
+                className={cx(
+                    styles.inner,
+                    isScrolled && styles.innerScrolled,
+                    styles.branding
+                )}
+            >
                 <div className={cx(styles.innerLeft)}>
                     <Link href="/">
                         <a>
