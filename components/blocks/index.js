@@ -6,7 +6,7 @@ export default function Blocks({ blocks = [] }) {
         <>
             {blocks.map((block, i) => (
                 <Block
-                    key={block.id}
+                    key={i}
                     offset={i === 0 ?? undefined}
                     {...block}
                 />
