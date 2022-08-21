@@ -81,6 +81,9 @@ $eases: (
 );
 $ease: cubic-bezier(#{map-get($eases, 1)}); // main easing. custom ease-in-out
 $ease-two: cubic-bezier(#{map-get($eases, 2)}); // longer ease-in-out
+@function ease($key) {
+    @return cubic-bezier(#{map-get($map: $eases, $key: $key)});
+}
 $durations: (
     1: 200,
     2: 800,
