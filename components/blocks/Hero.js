@@ -15,18 +15,25 @@ const HeroPropTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     content: PropTypes.string,
-    backgroundColor: PropTypes.shape({
-        value: PropTypes.oneOf(Object.keys(colors)),
-    }),
+    tall: PropTypes.bool,
+    heroBackgroundColor: PropTypes.oneOf(Object.keys(colors)),
 };
 
-function Hero({ buttons, title, subtitle, content, backgroundColor, ...rest }) {
+function Hero({
+    buttons,
+    title,
+    subtitle,
+    content,
+    heroBackgroundColor,
+    tall,
+    ...rest
+}) {
     return (
         <Section
-            className={cx(`-bg--${backgroundColor.value}`, "-tall")}
+            className={cx(`-bg--${heroBackgroundColor}`, tall && "-tall")}
             {...rest}
         >
-            <div className="container">
+            <div className="container -exp--t--3">
                 {subtitle && (
                     <ContentWrapper className="-exp--b--1/2">
                         <h3>{subtitle}</h3>
@@ -53,5 +60,8 @@ function Hero({ buttons, title, subtitle, content, backgroundColor, ...rest }) {
 }
 
 Hero.propTypes = HeroPropTypes;
+Hero.defaultProps = {
+    heroBackgroundColor: "dark",
+};
 
 export default Hero;
