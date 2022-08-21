@@ -16,6 +16,7 @@ import Alert from "@/components/TheHeader/Alert";
 import Logo from "@/components/TheHeader/Logo";
 import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
+import ScrollProgressBar from "@/components/TheHeader/ScrollProgressBar";
 
 const PageIndicator = dynamic(
     () => import("@/components/TheHeader/PageIndicator"),
@@ -76,6 +77,7 @@ function TheHeader() {
                     </div>
                 </div>
             </div>
+            <ScrollProgressBar />
         </header>
     );
 }
