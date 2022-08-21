@@ -49,8 +49,8 @@ function TheMenu() {
                 {
                     x: "0%",
                     y: "0%",
-                    ease: "linear",
-                    duration: durations["1"] * 0.001,
+                    ease: "ease",
+                    duration: durations["1"] * 0.001
                 }
             )
             .fromTo(
@@ -62,9 +62,9 @@ function TheMenu() {
                 {
                     alpha: 1,
                     y: 0,
-                    ease: "linear",
-                    duration: durations["1"] * 0.001,
-                    stagger: durations["1"] * 0.001 * 0.8,
+                    ease: "ease",
+                    duration: durations["1"] * 0.001 / 2,
+                    stagger: durations["1"] * 0.001 / 2 * 0.25,
                 },
                 ">+=0.1"
             );
