@@ -1,5 +1,5 @@
 // styles
-import styles from "./PinnedHeader.module.scss";
+import styles from "./TheHeader.module.scss";
 
 // lib
 import dynamic from "next/dynamic";
@@ -24,7 +24,7 @@ const PageIndicator = dynamic(
     }
 );
 
-function PinnedHeader() {
+function TheHeader() {
     const { setHeaderOffset = () => {} } = useStore(
         ({ global: { setHeaderOffset } }) => ({
             setHeaderOffset,
@@ -76,4 +76,4 @@ function PinnedHeader() {
     );
 }
 
-export default PinnedHeader;
+export default TheHeader;

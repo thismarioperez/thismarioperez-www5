@@ -1,2 +1,2 @@
-import PinnedHeader from "./PinnedHeader";
-export default PinnedHeader;
+import TheHeader from "./TheHeader";
+export default TheHeader;
