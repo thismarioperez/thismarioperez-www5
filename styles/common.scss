@@ -26,10 +26,10 @@ html {
 
 body {
     margin: 0 auto;
-    color: theme-colors(dark);
+    color: theme-colors(light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: theme-colors(secondary);
+    background-color: theme-colors(dark);
     color: theme-colors(light);
     font-family: $font-family;
     font-size: $base-font-size;
