@@ -1,0 +1,29 @@
+.link {
+    position: relative;
+    color: theme-colors(dark);
+    @include h1();
+    vertical-align: center;
+
+    &:before {
+        display: inline-block;
+        content: "*";
+        @include h2();
+        font-weight: bold;
+        transform: scaleX(0);
+        overflow: hidden;
+        transition: all duration(1) $ease;
+        vertical-align: middle;
+        height: 100%;
+    }
+
+    &__text {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &--active {
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+}

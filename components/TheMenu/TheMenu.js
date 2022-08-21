@@ -12,6 +12,7 @@ import cx from "classnames";
 // components
 import Background from "@/components/TheMenu/Background";
 import Content from "@/components/TheMenu/Content";
+import Nav from "@/components/TheMenu/Nav";
 
 function TheMenu() {
     const { isOpen } = useStore(
@@ -48,23 +49,24 @@ function TheMenu() {
                 {
                     x: "0%",
                     y: "0%",
-                    ease: "ease",
-                    duration: durations['1'] * 0.001
+                    ease: "linear",
+                    duration: durations["1"] * 0.001,
                 }
             )
             .fromTo(
-                q(".js-content .js-container"),
+                q(".js-content .js-item"),
                 {
                     alpha: 0,
-                    y: 10,
+                    y: 20,
                 },
                 {
                     alpha: 1,
                     y: 0,
-                    ease: "ease",
-                    duration: durations['1'] * 0.001
+                    ease: "linear",
+                    duration: durations["1"] * 0.001,
+                    stagger: durations["1"] * 0.001 * 0.8,
                 },
-                ">"
+                ">+=0.1"
             );
 
         return () => {
@@ -86,7 +88,9 @@ function TheMenu() {
     return (
         <div className={cx(styles.wrapper)} ref={el}>
             <Background />
-            <Content />
+            <Content>
+                <Nav />
+            </Content>
         </div>
     );
 }
