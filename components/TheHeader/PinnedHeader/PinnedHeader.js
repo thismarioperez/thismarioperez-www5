@@ -18,15 +18,19 @@ import Link from "next/link";
 import PageIndicator from "@/components/TheHeader/PageIndicator";
 
 function PinnedHeader() {
-    const { setHeaderOffset = () => {} } = useStore(({ setHeaderOffset }) => ({
-        setHeaderOffset,
-    }));
+    const { setHeaderOffset = () => {} } = useStore(
+        ({ global: { setHeaderOffset } }) => ({
+            setHeaderOffset,
+        })
+    );
     const direction = useWindowScrollDirection();
     const [ref, { height }] = useDimensions();
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
-        setHeaderOffset(Math.floor(height));
+        if (height) {
+            setHeaderOffset(Math.floor(height));
+        }
     }, [height]);
 
     useEffect(() => {
