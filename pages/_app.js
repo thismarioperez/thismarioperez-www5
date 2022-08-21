@@ -6,7 +6,6 @@ import "@fontsource/source-code-pro/400.css";
 import "@fontsource/source-code-pro/400-italic.css";
 import "@fontsource/source-code-pro/700.css";
 import "@fontsource/source-code-pro/700-italic.css";
-import "@/styles/globals.css";
 
 import TheLayout from "@/components/TheLayout";
 import { detect } from "@/scripts/core";
