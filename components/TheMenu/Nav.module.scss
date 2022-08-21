@@ -1,8 +1,19 @@
 .link {
     position: relative;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: $nudge 0;
     color: theme-colors(dark);
     @include h1();
-    vertical-align: center;
+    transform: translate(0,0);
+    transition: all duration(1) ease(1);
+
+    &:hover,
+    &:focus-visible {
+        transform: translate($nudge, 0);
+    }
 
     &:before {
         display: inline-block;
@@ -12,13 +23,11 @@
         transform: scaleX(0);
         overflow: hidden;
         transition: all duration(1) $ease;
-        vertical-align: middle;
         height: 100%;
     }
 
     &__text {
         display: inline-block;
-        vertical-align: middle;
     }
 
     &--active {
