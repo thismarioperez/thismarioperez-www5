@@ -1,7 +1,8 @@
 import styles from "./ContentWrapper.module.scss";
+import durations from "@/styles/exports/durations.module.scss";
 
 // lib
-import durations from "@/styles/exports/durations.module.scss";
+import useStore from "@/store";
 import { useInView } from "react-intersection-observer";
 import { useRef } from "react";
 import cx from "classnames";
@@ -10,9 +11,13 @@ import cx from "classnames";
 import { CSSTransition } from "react-transition-group";
 
 function ContentWrapper({ className, children, ...rest }) {
+    const { headerOffset } = useStore(state => ({
+        headerOffset: state.global.headerOffset
+    }))
     const { ref, inView } = useInView({
-        threshold: 0.6,
-        triggerOnce: true,
+        threshold: 0.5,
+        rootMargin: `-${headerOffset}px 0px -100px 0px`,
+        // triggerOnce: true,
     });
     const _ref = useRef(null);
     return (
