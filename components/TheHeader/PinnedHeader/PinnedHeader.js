@@ -45,7 +45,10 @@ function PinnedHeader() {
     }, [direction]);
 
     return (
-        <header className={styles.wrapper} ref={ref}>
+        <header
+            className={styles.wrapper}
+            ref={ref}
+        >
             <Alert />
             <div className={cx(styles.inner, styles.branding)}>
                 <div className={cx(styles.innerLeft)}>
