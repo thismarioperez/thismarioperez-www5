@@ -10,9 +10,8 @@ $colors: (
     // Main Primary color */
     primary: #fee000,
 
-
     // Main Secondary color */
-    secondary: #212128,
+    secondary: #212128
 );
 
 $dark: dark secondary;
@@ -26,7 +25,7 @@ $accents: (
     secondary1: #646476,
     secondary2: #464654,
     secondary3: #161624,
-    secondary4: #0f0f21
+    secondary4: #0f0f21,
 );
 
 @function theme-colors($key) {
@@ -76,8 +75,12 @@ $btn-size: 20px;
 ////////////////////////////////////////////////////////////////////////////////
 // Animations
 ////////////////////////////////////////////////////////////////////////////////
-$ease: cubic-bezier(0.62, 0, 0.38, 1); // main easing. custom ease-in-out
-$ease-two: cubic-bezier(0.8, 0, 0.6, 1); // longer ease-in-out
+$eases: (
+    1: "0.62, 0, 0.38, 1",
+    2: "0.8, 0, 0.6, 1",
+);
+$ease: cubic-bezier(#{map-get($eases, 1)}); // main easing. custom ease-in-out
+$ease-two: cubic-bezier(#{map-get($eases, 2)}); // longer ease-in-out
 $durations: (
     1: 400ms,
     2: 800ms,
