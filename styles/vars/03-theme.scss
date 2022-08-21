@@ -31,6 +31,9 @@ $accents: (
 @function theme-colors($key) {
     @return map-get($map: $colors, $key: $key);
 }
+@function accent-colors($key) {
+    @return map-get($map: $accents, $key: $key);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Fonts
