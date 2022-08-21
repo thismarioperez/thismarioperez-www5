@@ -1,0 +1,5 @@
+.wrapper {
+    @include cover(fixed);
+    transform: translate(100%, 100%); // set initial position off screen
+    z-index: z_layer(1);
+}

@@ -10,6 +10,7 @@ import Meta from "@/components/common/Meta";
 import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
 import TheMenuButton from "@/components/TheMenuButton";
+import TheMenu from "@/components/TheMenu";
 
 const { SITE_NAME } = constants;
 
@@ -67,11 +68,12 @@ export default function Layout({ children }) {
                 <meta name="description" content={`${SITE_NAME}`} />
             </Meta>
             <TheHeader />
-            <TheMenuButton />
             <main className="-tall" ref={contentRef}>
                 {children}
             </main>
             <TheFooter />
+            <TheMenuButton />
+            <TheMenu />
         </>
     );
 }
