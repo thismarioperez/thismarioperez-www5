@@ -20,8 +20,6 @@ export default function Footer() {
                     </ContentWrapper>
                     <ContentWrapper>
                         <h3>Built with Next.JS and Strapi.</h3>
-                    </ContentWrapper>
-                    <ContentWrapper>
                         <p>
                             <a
                                 href={GITHUB_URL}
