@@ -14,6 +14,11 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
+    padding: (rem-calc($nudge) / 2) 0;
+
+    @include large {
+        padding: $nudge 0;
+    }
 
     &__left {
         padding-right: $container-padding / 2;
