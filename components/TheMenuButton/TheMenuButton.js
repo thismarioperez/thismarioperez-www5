@@ -28,11 +28,15 @@ function TheMenuButton() {
         <div className={styles.wrapper}>
             <button
                 type="button"
-                className={cx("button--primary", styles.button)}
+                className={cx(
+                    "button--primary",
+                    styles.button,
+                    isMenuOpen && styles.buttonActive
+                )}
                 onClick={onClick}
             >
                 <div
-                    className={cx(styles.icon, isMenuOpen && styles.iconClose)}
+                    className={cx(styles.icon, isMenuOpen && styles.iconActive)}
                 >
                     <div className={styles.line}></div>
                     <div className={styles.line}></div>

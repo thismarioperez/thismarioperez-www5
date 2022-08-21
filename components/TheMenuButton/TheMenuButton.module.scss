@@ -7,9 +7,15 @@
 
 .button {
     padding: $nudge;
+    border-bottom: none;
+    border-right: none;
 
-    &:not(:focus) {
-        border-color: transparent;
+    &:hover {
+        background-color: theme-colors(primary);
+    }
+
+    &--active {
+        border-color: theme-colors(dark);
     }
 }
 
@@ -40,7 +46,10 @@
         }
     }
 
-    &--close {
+    &--active {
+        .line {
+            color: theme-colors(dark);
+        }
         .line:nth-child(1) {
             transform-origin:bottom;
             transform:rotatez(45deg) translate(2px, 1px)
