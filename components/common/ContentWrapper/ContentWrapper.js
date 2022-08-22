@@ -15,9 +15,9 @@ function ContentWrapper({ className, children, ...rest }) {
         headerOffset: state.global.headerOffset
     }))
     const { ref, inView } = useInView({
-        threshold: 0.5,
+        threshold: 0.8,
         rootMargin: `-${headerOffset}px 0px -50px 0px`,
-        // triggerOnce: true,
+        triggerOnce: true,
     });
     const _ref = useRef(null);
     return (
