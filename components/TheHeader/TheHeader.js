@@ -47,7 +47,10 @@ function TheHeader() {
     }, [y, headerOffset]);
 
     return (
-        <header className={styles.wrapper} ref={ref}>
+        <header
+            className={cx(styles.wrapper, isScrolled && styles.wrapperScrolled)}
+            ref={ref}
+        >
             <Alert />
             <div
                 className={cx(

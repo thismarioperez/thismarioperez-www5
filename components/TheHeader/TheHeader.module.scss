@@ -5,6 +5,13 @@
     width: 100%;
     z-index: z-layer(8);
     background-color: theme-colors(dark);
+    backdrop-filter: none;
+    transition: all duration(2) ease(1);
+
+    &--scrolled {
+        background-color: rgba(theme-colors(dark), 50%);
+        backdrop-filter: blur(10px);
+    }
 }
 
 .inner {
