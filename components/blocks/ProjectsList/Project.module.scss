@@ -1,0 +1,7 @@
+.wrapper {
+    position: relative;
+
+    + .wrapper {
+        border-top: 2px solid theme-colors(secondary)
+    }
+}
