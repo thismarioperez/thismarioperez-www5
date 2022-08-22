@@ -14,5 +14,5 @@
     height: 1px;
     background: theme-colors(primary);
     transform-origin: center;
-    transition: transform ease(1) 100ms;
+    transition: transform linear duration(1);
 }
