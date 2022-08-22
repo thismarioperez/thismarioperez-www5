@@ -20,12 +20,12 @@ const HeroPropTypes = {
 };
 
 function Hero({
-    buttons,
-    title,
-    subtitle,
-    content,
+    buttons = null,
+    title = null,
+    subtitle = null,
+    content = null,
     heroBackgroundColor,
-    tall,
+    tall = null,
     ...rest
 }) {
     return (
@@ -35,22 +35,34 @@ function Hero({
         >
             <div className="container -exp--t--3">
                 {subtitle && (
-                    <ContentWrapper className="-exp--b--1/2">
+                    <ContentWrapper
+                        className={cx(
+                            title?.length ||
+                                content?.length ||
+                                (buttons?.length && "-exp--b--1/2")
+                        )}
+                    >
                         <h3>{subtitle}</h3>
                     </ContentWrapper>
                 )}
                 {title && (
-                    <ContentWrapper>
+                    <ContentWrapper
+                        className={cx(
+                            content?.length || (buttons?.length && "-exp--b")
+                        )}
+                    >
                         <h1>{title}</h1>
                     </ContentWrapper>
                 )}
                 {content && (
-                    <ContentWrapper className="-exp--t">
+                    <ContentWrapper
+                        className={cx(buttons?.length && "-exp--b")}
+                    >
                         <MarkdownRenderer>{content}</MarkdownRenderer>
                     </ContentWrapper>
                 )}
-                {buttons && buttons.length > 0 && (
-                    <ContentWrapper className="-exp--t">
+                {buttons && (
+                    <ContentWrapper>
                         <Buttons buttons={buttons} />
                     </ContentWrapper>
                 )}
