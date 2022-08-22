@@ -7,16 +7,13 @@ import useStore from "@/store";
 import { useEffect, useState } from "react";
 import cx from "classnames";
 import useDimensions from "@/hooks/useDimensions";
-import useWindowScrollPosition, {
-    DIRECTIONS,
-} from "@/hooks/useWindowScrollPosition";
+import useWindowScrollPosition from "@/hooks/useWindowScrollPosition";
 
 // components
 import Alert from "@/components/TheHeader/Alert";
 import Logo from "@/components/TheHeader/Logo";
 import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
-import ScrollProgressBar from "@/components/TheHeader/ScrollProgressBar";
 
 const PageIndicator = dynamic(
     () => import("@/components/TheHeader/PageIndicator"),
@@ -56,7 +53,7 @@ function TheHeader() {
                 className={cx(
                     styles.inner,
                     isScrolled && styles.innerScrolled,
-                    styles.branding
+                    // styles.branding
                 )}
             >
                 <div className={cx(styles.innerLeft)}>
@@ -80,7 +77,6 @@ function TheHeader() {
                     </div>
                 </div>
             </div>
-            <ScrollProgressBar />
         </header>
     );
 }

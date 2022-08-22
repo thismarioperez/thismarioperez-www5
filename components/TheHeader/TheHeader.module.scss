@@ -6,7 +6,7 @@
     z-index: z-layer(8);
     background-color: theme-colors(dark);
     backdrop-filter: none;
-    transition: all duration(2) ease(1);
+    transition: all duration(1) ease(1);
 
     &--scrolled {
         background-color: rgba(theme-colors(dark), 50%);
