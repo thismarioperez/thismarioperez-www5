@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import useStore from "@/store";
 import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import { constants } from "@/scripts/core";
 
 // components
@@ -11,7 +12,12 @@ import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
 import TheMenuButton from "@/components/TheMenuButton";
 import TheMenu from "@/components/TheMenu";
-import TheScrollIndicator from "./TheScrollIndicator";
+const TheScrollIndicator = dynamic(
+    () => import("@/components/TheScrollIndicator"),
+    {
+        ssr: false,
+    }
+);
 
 const { SITE_NAME } = constants;
 
@@ -75,7 +81,7 @@ export default function Layout({ children }) {
             <TheFooter />
             <TheMenuButton />
             <TheMenu />
-            <TheScrollIndicator/>
+            <TheScrollIndicator />
         </>
     );
 }
