@@ -27,31 +27,19 @@
     }
 
     &__right {
-        padding: 0 $container-padding 0
-            $container-padding / 2;
+        padding-left: $container-padding / 2;
 
-            &__content {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: center;
-            }
-    }
-}
-
-.branding {
-    position: relative;
-    &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        height: 100%;
-        border-left: ($nudge / 2) solid theme-colors(primary);
+        &__content {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
     }
 }
 
 .logo {
     position: relative;
-    padding: $nudge $nudge $nudge $container-padding;
+    padding: $nudge $nudge $nudge 0;
 
     svg {
         fill: #fff;
@@ -71,7 +59,7 @@
         width: $header-logo-mark-size;
         position: absolute;
         top: 50%;
-        left: $container-padding;
+        left: 0;
         transform: translate3d(-100%, -50%, 0);
     }
 

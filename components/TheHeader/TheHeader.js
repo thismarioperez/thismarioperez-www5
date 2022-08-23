@@ -11,6 +11,7 @@ import useWindowScrollPosition from "@/hooks/useWindowScrollPosition";
 
 // components
 import Alert from "@/components/TheHeader/Alert";
+import Container from "../common/Container";
 import Logo from "@/components/TheHeader/Logo";
 import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
@@ -56,7 +57,7 @@ function TheHeader() {
             ref={ref}
         >
             <Alert />
-            <div
+            <Container
                 className={cx(
                     styles.inner,
                     isScrolled && styles.innerScrolled
@@ -84,7 +85,7 @@ function TheHeader() {
                     </div>
                 </div>
                 <ScrollIndicator />
-            </div>
+            </Container>
         </header>
     );
 }
