@@ -9,6 +9,7 @@ import cx from "classnames";
 import Section from "@/components/common/Section";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import MarkdownRenderer from "@/components/common/MarkdownRenderer";
+import Copy from "@/components/common/Copy";
 import Container from "@/components/common/Container";
 
 const ProjectPropTypes = {
@@ -27,39 +28,43 @@ function Project({ title = null, content = null, links = null }) {
     return (
         <Section className={styles.wrapper}>
             <Container>
-                {title && (
-                    <ContentWrapper
-                        className={cx(
-                            (content?.length || links?.length) && "-exp--b"
-                        )}
-                    >
-                        <h2>{title}</h2>
-                    </ContentWrapper>
-                )}
-                {content && (
-                    <ContentWrapper className={cx(links?.length && "-exp--b")}>
-                        <MarkdownRenderer>{content}</MarkdownRenderer>
-                    </ContentWrapper>
-                )}
-                {links && (
-                    <ContentWrapper>
-                        <div className={styles.linksWrapper}>
-                            <h3>Links:</h3>
-                            {links.map(({ href, label, target }, i) => (
-                                <p key={i}>
-                                    <a
-                                        href={href}
-                                        target={target}
-                                        rel="noreferrer"
-                                    >
-                                        {label}
-                                        {" →"}
-                                    </a>
-                                </p>
-                            ))}
-                        </div>
-                    </ContentWrapper>
-                )}
+                <Copy>
+                    {title && (
+                        <ContentWrapper
+                            className={cx(
+                                (content?.length || links?.length) && "-exp--b"
+                            )}
+                        >
+                            <h2>{title}</h2>
+                        </ContentWrapper>
+                    )}
+                    {content && (
+                        <ContentWrapper
+                            className={cx(links?.length && "-exp--b")}
+                        >
+                            <MarkdownRenderer>{content}</MarkdownRenderer>
+                        </ContentWrapper>
+                    )}
+                    {links && (
+                        <ContentWrapper>
+                            <div className={styles.linksWrapper}>
+                                <h3>Links:</h3>
+                                {links.map(({ href, label, target }, i) => (
+                                    <p key={i}>
+                                        <a
+                                            href={href}
+                                            target={target}
+                                            rel="noreferrer"
+                                        >
+                                            {label}
+                                            {" →"}
+                                        </a>
+                                    </p>
+                                ))}
+                            </div>
+                        </ContentWrapper>
+                    )}
+                </Copy>
             </Container>
         </Section>
     );
