@@ -1,13 +1,11 @@
 @use "sass:math";
-// variables
-@import "@/styles/vars/00-sizes";
-@import "@/styles/vars/02-z-layers";
-@import "@/styles/vars/03-theme";
 
-// util
-@import "@/styles/util/00-rem-calc";
-@import "@/styles/util/01-breakpoints";
-@import "@/styles/util/02-escape";
-@import "@/styles/util/mixins";
-@import "@/styles/util/exp";
-@import "@/styles/util/typography";
+@import "@/styles/core/00-rem-calc";
+@import "@/styles/core/01-escape";
+@import "@/styles/core/02-breakpoints";
+@import "@/styles/core/03-theme";
+@import "@/styles/core/04-sizes";
+@import "@/styles/core/05-z-layers";
+@import "@/styles/core/mixins";
+@import "@/styles/core/exp";
+@import "@/styles/core/typography";
