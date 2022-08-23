@@ -12,6 +12,7 @@ import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
 import TheMenuButton from "@/components/TheMenuButton";
 import TheMenu from "@/components/TheMenu";
+import TheLoader from "@/components/TheLoader";
 
 const { SITE_NAME } = constants;
 
@@ -75,6 +76,7 @@ export default function Layout({ children }) {
             <TheFooter />
             <TheMenuButton />
             <TheMenu />
+            <TheLoader />
         </>
     );
 }

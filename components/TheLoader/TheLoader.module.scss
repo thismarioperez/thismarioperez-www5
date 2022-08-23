@@ -1,0 +1,5 @@
+.wrapper {
+    @include cover(fixed);
+    background: theme-colors(dark);
+    z-index: z_layer(7);
+}
