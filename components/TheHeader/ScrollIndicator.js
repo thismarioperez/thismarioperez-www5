@@ -1,18 +1,15 @@
 // styles
-import styles from "./TheScrollIndicator.module.scss";
+import styles from "./ScrollIndicator.module.scss";
 
 // lib
-import useStore from "@/store";
-import { useEffect, useState } from "react";
-import { shallow } from "immer";
+import { gsap } from "@/lib/gsap";
+import { useLayoutEffect, useRef, useState } from "react";
 
-function TheScrollIndicator() {
+function ScrollIndicator() {
+    const ref = useRef(ref);
     const [scroll, setScroll] = useState(0);
-    const { headerOffset } = useStore((state) => ({
-        headerOffset: state.global.headerOffset,
-    }));
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         let progressBarHandler = () => {
             const totalScroll = document.documentElement.scrollTop;
             const windowHeight =
@@ -28,14 +25,21 @@ function TheScrollIndicator() {
         return () => window.removeEventListener("scroll", progressBarHandler);
     });
 
+    useLayoutEffect(() => {
+        gsap.to(ref.current, {
+            scaleX: scroll,
+        });
+
+        return (() => {
+            gsap.killTweensOf(ref.current);
+        });
+    }, [scroll]);
+
     return (
-        <div className={styles.wrapper} style={{ top: `${headerOffset}px` }}>
-            <div
-                className={styles.bar}
-                style={{ transform: `scale(${scroll}, 1)` }}
-            />
+        <div className={styles.wrapper}>
+            <div ref={ref} className={styles.bar} style={{transform: `translate(${scroll}, 1)`}}/>
         </div>
     );
 }
 
-export default TheScrollIndicator;
+export default ScrollIndicator;

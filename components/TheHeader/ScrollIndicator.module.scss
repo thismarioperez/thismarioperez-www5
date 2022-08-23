@@ -1,6 +1,6 @@
 .wrapper {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 100%;
     left: 0;
     height: 1px;
     width: 100%;
@@ -14,5 +14,5 @@
     height: 1px;
     background: theme-colors(primary);
     transform-origin: center;
-    transition: transform linear duration(1);
+    // transition: transform linear duration(1);
 }

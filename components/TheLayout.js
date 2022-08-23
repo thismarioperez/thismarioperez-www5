@@ -12,12 +12,6 @@ import TheHeader from "@/components/TheHeader";
 import TheFooter from "@/components/TheFooter";
 import TheMenuButton from "@/components/TheMenuButton";
 import TheMenu from "@/components/TheMenu";
-const TheScrollIndicator = dynamic(
-    () => import("@/components/TheScrollIndicator"),
-    {
-        ssr: false,
-    }
-);
 
 const { SITE_NAME } = constants;
 
@@ -81,7 +75,6 @@ export default function Layout({ children }) {
             <TheFooter />
             <TheMenuButton />
             <TheMenu />
-            <TheScrollIndicator />
         </>
     );
 }
