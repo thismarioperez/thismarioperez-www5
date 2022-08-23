@@ -1,7 +1,9 @@
 .wrapper {
     position: relative;
+}
 
-    + .wrapper {
-        border-top: 2px solid theme-colors(secondary)
-    }
+.links-wrapper {
+    padding: $nudge;
+    border: 1px dashed theme-colors(light);
+    max-width: rem-calc(400px);
 }

@@ -10,7 +10,6 @@ import Section from "@/components/common/Section";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import MarkdownRenderer from "@/components/common/MarkdownRenderer";
 import Container from "@/components/common/Container";
-import Link from "next/link";
 
 const ProjectPropTypes = {
     title: PropTypes.string,
@@ -44,15 +43,21 @@ function Project({ title = null, content = null, links = null }) {
                 )}
                 {links && (
                     <ContentWrapper>
-                        <h3>Links:</h3>
-                        {links.map(({ href, label, target }, i) => (
-                            <p key={i}>
-                                <a href={href} target={target} rel="noreferrer">
-                                    {label}
-                                    {" →"}
-                                </a>
-                            </p>
-                        ))}
+                        <div className={styles.linksWrapper}>
+                            <h3>Links:</h3>
+                            {links.map(({ href, label, target }, i) => (
+                                <p key={i}>
+                                    <a
+                                        href={href}
+                                        target={target}
+                                        rel="noreferrer"
+                                    >
+                                        {label}
+                                        {" →"}
+                                    </a>
+                                </p>
+                            ))}
+                        </div>
                     </ContentWrapper>
                 )}
             </Container>
