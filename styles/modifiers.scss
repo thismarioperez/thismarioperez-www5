@@ -4,6 +4,10 @@
 .-exp {
     @include exp();
 }
+.-inset {
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+}
 .-vtop {
     vertical-align: top;
 }
