@@ -22,6 +22,13 @@ const PageIndicator = dynamic(
     }
 );
 
+const ScrollIndicator = dynamic(
+    () => import("@/components/TheHeader/ScrollIndicator"),
+    {
+        ssr: false,
+    }
+);
+
 function TheHeader() {
     const { headerOffset, setHeaderOffset = () => {} } = useStore(
         ({ global: { headerOffset, setHeaderOffset } }) => ({
@@ -52,7 +59,7 @@ function TheHeader() {
             <div
                 className={cx(
                     styles.inner,
-                    isScrolled && styles.innerScrolled,
+                    isScrolled && styles.innerScrolled
                     // styles.branding
                 )}
             >
@@ -76,6 +83,7 @@ function TheHeader() {
                         <PageIndicator />
                     </div>
                 </div>
+                <ScrollIndicator />
             </div>
         </header>
     );
