@@ -5,6 +5,7 @@ const NAMESPACE = "global";
 const initialState = {
     headerOffset: 0,
     isMenuOpen: false,
+    isLoading: false,
 };
 
 const createGlobal = (set, get) => ({
@@ -38,6 +39,18 @@ const createGlobal = (set, get) => ({
             set(
                 produce((state) => {
                     state[NAMESPACE].headerOffset = value;
+                })
+            ),
+        startLoading: () =>
+            set(
+                produce((state) => {
+                    state[NAMESPACE].isLoading = true;
+                })
+            ),
+        finishLoading: () =>
+            set(
+                produce((state) => {
+                    state[NAMESPACE].isLoading = false;
                 })
             ),
     },
