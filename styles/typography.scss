@@ -7,19 +7,6 @@
 p,
 li {
     @include p();
-
-    @include small {
-        font-size: $p-size-two;
-        line-height: $p-line-two;
-    }
-
-    em {
-        font-style: italic;
-    }
-
-    strong {
-        @include strong();
-    }
 }
 blockquote,
 .blockquote {
@@ -68,34 +55,15 @@ h6 {
     line-height: 1.1;
 }
 h1 {
-    &,
-    & a {
-        @include h1();
-
-        @include small {
-            font-size: $h1-size-two;
-            line-height: $h1-line-two;
-        }
-    }
+    @include h1();
 }
 
 h2 {
-    &,
-    & a {
-        @include h2();
-
-        @include small {
-            font-size: $h2-size-two;
-            line-height: $h2-line-two;
-        }
-    }
+    @include h2();
 }
 
 h3 {
-    &,
-    & > a {
-        @include h3();
-    }
+    @include h3();
 }
 
 strong {

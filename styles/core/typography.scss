@@ -28,11 +28,6 @@
     line-height: $base-line-height;
 }
 
-@mixin font-body {
-    font-family: $font-family;
-    @include font-normal();
-}
-
 @mixin font-headline {
     font-family: $font-family;
     @include font-light();
@@ -55,16 +50,15 @@
 }
 
 @mixin p() {
-    font-size: $p-size;
+    font-size: rem-calc($p-size);
     line-height: $p-line;
-    letter-spacing: $track;
-    @include font-body();
+    @include font-normal();
 }
 
 @mixin a() {
     display: inline;
     text-decoration: underline;
-    @include font-body();
+    @include font-normal();
 }
 
 @mixin pa() {
@@ -129,27 +123,46 @@
 }
 
 @mixin h1() {
-    font-size: $h1-size;
-    line-height: $h1-line;
-    letter-spacing: $track;
-    text-transform: none;
-    @include font-headline();
+    &,
+    & > a {
+        font-size: $h1-size;
+        line-height: $h1-line;
+        letter-spacing: $track;
+        text-transform: none;
+        @include font-headline();
+
+        @include small {
+            font-size: rem-calc($h1-size-two);
+            line-height: $h1-line-two;
+        }
+    }
 }
 
 @mixin h2() {
-    font-size: $h2-size;
-    line-height: $h2-line;
-    letter-spacing: $track;
-    text-transform: none;
-    @include font-headline();
+    &,
+    & > a {
+        font-size: $h2-size;
+        line-height: $h2-line;
+        letter-spacing: $track;
+        text-transform: none;
+        @include font-headline();
+
+        @include small {
+            font-size: rem-calc($h2-size-two);
+            line-height: $h2-line-two;
+        }
+    }
 }
 
 @mixin h3() {
-    font-size: $h3-size;
-    line-height: $h3-line;
-    letter-spacing: $track;
-    text-transform: uppercase;
-    @include font-headline-2();
+    &,
+    & > a {
+        font-size: rem-calc($h3-size);
+        line-height: $h3-line;
+        letter-spacing: $track;
+        text-transform: uppercase;
+        @include font-headline-2();
+    }
 }
 
 @mixin h4() {
@@ -172,7 +185,7 @@
 }
 
 @mixin quote() {
-    font-size: $quote-size;
+    font-size: rem-calc($quote-size);
     line-height: $quote-line;
     letter-spacing: $track;
     text-transform: none;
@@ -180,11 +193,10 @@
     font-style: italic;
 }
 
-
 @mixin button {
     font-family: $font-family;
     font-weight: 500;
-    font-size: rem-calc(14);
+    font-size: rem-calc($btn-size);
     letter-spacing: 0.02em;
     text-transform: uppercase;
 }
