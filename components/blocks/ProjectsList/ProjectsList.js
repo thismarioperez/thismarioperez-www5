@@ -20,7 +20,7 @@ function ProjectsList({ projects: { data = [] } = {} }) {
         <div className={styles.wrapper}>
             {data &&
                 data.map((project, i) => (
-                    <>
+                    <div key={i}>
                         {i > 0 && (
                             <ContentWrapper>
                                 <Container>
@@ -29,7 +29,7 @@ function ProjectsList({ projects: { data = [] } = {} }) {
                             </ContentWrapper>
                         )}
                         <Project {...project.attributes} />
-                    </>
+                    </div>
                 ))}
         </div>
     );
