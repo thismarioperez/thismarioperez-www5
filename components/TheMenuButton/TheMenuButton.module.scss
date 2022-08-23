@@ -19,9 +19,10 @@
 }
 
 .icon {
+    $p: &;
     $size: 24px;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     position: relative;
     width: rem-calc($size);
@@ -36,12 +37,20 @@
 
         &:nth-child(1) {
             width: 50%;
+
+            .button:hover & {
+                width: 75%;
+            }
         }
         &:nth-child(2) {
             width: 100%;
         }
         &:nth-child(3) {
             width: 75%;
+
+            .button:hover & {
+                width: 50%;
+            }
         }
     }
 
@@ -50,16 +59,21 @@
             color: theme-colors(dark);
         }
         .line:nth-child(1) {
-            transform-origin:bottom;
-            transform:rotatez(45deg) translate(2px, 1px)
+            transform-origin: bottom;
+            transform: rotatez(45deg) translate(2px, 1px);
+
+            &,
+            .button:hover & {
+                width: 50%;
+            }
         }
         .line:nth-child(2) {
-            transform-origin:center;
-            transform:rotatez(-45deg)
+            transform-origin: center;
+            transform: rotatez(-45deg);
         }
         .line:nth-child(3) {
             // transform-origin:bottom;
-            width:50%;
+            width: 50%;
             transform: translate(10px, -2px) rotatez(45deg);
         }
     }
