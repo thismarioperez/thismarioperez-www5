@@ -11,8 +11,9 @@ import cx from "classnames";
 import { CSSTransition } from "react-transition-group";
 
 function ContentWrapper({ className, children, ...rest }) {
-    const { headerOffset } = useStore(state => ({
-        headerOffset: state.global.headerOffset
+    const { headerOffset, isLoading } = useStore(state => ({
+        headerOffset: state.global.headerOffset,
+        isLoading: state.global.isLoading
     }))
     const { ref, inView } = useInView({
         threshold: 0.8,
@@ -23,7 +24,7 @@ function ContentWrapper({ className, children, ...rest }) {
     return (
         <div className={cx(styles.wrapper, className)} ref={ref} {...rest}>
             <CSSTransition
-                in={inView}
+                in={inView && !isLoading}
                 timeout={parseInt(durations["2"])}
                 ref={_ref}
             >
