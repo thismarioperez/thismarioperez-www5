@@ -9,6 +9,7 @@ const MarkdownLink = dynamic(() => import("./MarkdownLink"), {
 function MarkdownRenderer(props) {
     return (
         <Markdown
+            className="cms-content"
             remarkPlugins={[remarkGfm]}
             components={{
                 a: (props) => <MarkdownLink {...props} />,

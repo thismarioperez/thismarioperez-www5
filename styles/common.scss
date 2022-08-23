@@ -44,3 +44,19 @@ body {
     position: relative;
     @include container();
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// content
+////////////////////////////////////////////////////////////////////////////////
+.cms-content {
+    ul {
+        display: block;
+        list-style: disc outside;
+        padding-left: $nudge;
+    }
+    ol {
+        display: block;
+        list-style: decimal outside;
+        padding-left: $nudge;
+    }
+}
