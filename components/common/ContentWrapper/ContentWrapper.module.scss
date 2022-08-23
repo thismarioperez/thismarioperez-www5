@@ -8,7 +8,7 @@
     visibility: hidden;
     opacity: 0;
     transform: translate3d(0, $nudge, 0);
-    transition-delay: duration(3);
+    transition-delay: duration(2);
 
     &:global(.enter) {
         visibility: hidden;
@@ -20,8 +20,8 @@
         visibility: visible;
         opacity: 1;
         transform: translate3d(0, 0, 0);
-        transition: visibility 0ms 0ms $ease, opacity duration(1) 0ms $ease,
-            transform duration(1) 0ms $ease;
+        transition: visibility 0ms 0ms $ease, opacity duration(2) 0ms $ease,
+            transform duration(2) 0ms $ease;
     }
 
     &:global(.enter-done) {
@@ -40,8 +40,8 @@
         visibility: hidden;
         opacity: 0;
         transform: translate3d(0, $nudge, 0);
-        transition: transform duration(1) 0ms $ease,
-            opacity duration(1) 0ms $ease, visibility 0ms duration(1) $ease;
+        transition: transform duration(2) 0ms $ease,
+            opacity duration(2) 0ms $ease, visibility 0ms duration(2) $ease;
     }
 
     &:global(.exit-done) {
