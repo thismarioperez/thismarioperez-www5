@@ -13,6 +13,6 @@
     justify-content: center;
     width: 100%;
 
-    @include h3();
+    @include font-bold();
     text-transform: none;
 }
