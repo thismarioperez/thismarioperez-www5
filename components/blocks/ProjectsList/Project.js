@@ -11,6 +11,7 @@ import ContentWrapper from "@/components/common/ContentWrapper";
 import MarkdownRenderer from "@/components/common/MarkdownRenderer";
 import Copy from "@/components/common/Copy";
 import Container from "@/components/common/Container";
+import Image from "next/image";
 
 const ProjectPropTypes = {
     title: PropTypes.string,
@@ -22,13 +23,16 @@ const ProjectPropTypes = {
             target: PropTypes.string,
         })
     ),
+    image: PropTypes.shape({
+        data: PropTypes.object,
+    }),
 };
 
-function Project({ title = null, content = null, links = null }) {
+function Project({ title = null, content = null, links = null, image = null }) {
     return (
         <Section className={styles.wrapper}>
-            <Container>
-                <Copy>
+            <Container className={styles.container}>
+                <div className={styles.content}>
                     {title && (
                         <ContentWrapper
                             className={cx(
@@ -64,7 +68,24 @@ function Project({ title = null, content = null, links = null }) {
                             </div>
                         </ContentWrapper>
                     )}
-                </Copy>
+                </div>
+                <div className={styles.imageWrapper}>
+                    {image && image.data && image.data.attributes && (
+                        <ContentWrapper className={styles.image}>
+                            <Image
+                            layout="responsive"
+                                src={image.data.attributes.url}
+                                alt={image.data.attributes.alternativeText}
+                                placeholder="blur"
+                                blurDataURL={
+                                    image.data.attributes.formats.thumbnail.url
+                                }
+                                height={image.data.attributes.height}
+                                width={image.data.attributes.width}
+                            />
+                        </ContentWrapper>
+                    )}
+                </div>
             </Container>
         </Section>
     );

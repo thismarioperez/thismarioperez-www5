@@ -7,3 +7,43 @@
     border: 1px dashed theme-colors(light);
     max-width: rem-calc(400px);
 }
+
+.container {
+    @include large {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+}
+
+.content,
+.image-wrapper {
+    @include large {
+        flex: 1;
+    }
+}
+
+.image-wrapper {
+    position: relative;
+    margin-top: expander(0);
+    @include medium {
+        margin-top: expander(medium);
+    }
+    @include large {
+        margin-top: 0;
+        margin-left: $container-padding;
+    }
+}
+
+.image {
+    img {
+        animation: perspective 8s steps(480) infinite;
+    }
+
+    @keyframes perspective {
+        0%, 100% { transform: perspective(1500px) rotateY(0deg) scale(.8); }
+        25% { transform: perspective(1500px) rotateY(-20deg) scale(.8); }
+        50% { transform:perspective(1500px) rotateY(-10deg) scale(.8);  }
+        75% { transform:perspective(1500px) rotateY(-20deg) scale(.8);  }
+    }
+}
