@@ -33,24 +33,12 @@ function TheMenu() {
             .fromTo(
                 el.current,
                 {
-                    zIndex: -1,
+                    scale: 0,
                 },
                 {
-                    zIndex: 900,
-                    duration: 0.01,
-                }
-            )
-            .fromTo(
-                q(".js-bg"),
-                {
-                    x: "100%",
-                    y: "100%",
-                },
-                {
-                    x: "0%",
-                    y: "0%",
+                    scale: 1,
                     ease: "ease",
-                    duration: durations["1"] * 0.001
+                    duration: durations["2"] * 0.001
                 }
             )
             .fromTo(
@@ -87,10 +75,12 @@ function TheMenu() {
 
     return (
         <div className={cx(styles.wrapper)} ref={el}>
-            <Background />
-            <Content>
-                <Nav />
-            </Content>
+            <div className={styles.inner}>
+                <Background />
+                <Content>
+                    <Nav />
+                </Content>
+            </div>
         </div>
     );
 }
