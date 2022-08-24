@@ -31,6 +31,9 @@ const nextConfig = {
 
 		return config;
 	},
+    images: {
+        domains: [`${process.env.AWS_BUCKET}.s3.amazonaws.com`],
+    }
 };
 
 module.exports = withNextPluginPreval(nextConfig);
