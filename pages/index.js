@@ -26,7 +26,7 @@ export default function Home({ data }) {
             </Meta>
             <Section className="-tall">
                 <Container>
-                    <Copy className="-z--2">
+                    <div className="-relative -z--2">
                         {header?.length > 0 && (
                             <ContentWrapper
                                 className={cx(
@@ -61,7 +61,7 @@ export default function Home({ data }) {
                                 <Buttons buttons={buttons} />
                             </ContentWrapper>
                         )}
-                    </Copy>
+                    </div>
                 </Container>
             </Section>
             <TheHomeScene text="M" />
