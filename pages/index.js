@@ -5,19 +5,19 @@ import { constants } from "@/scripts/core";
 
 // components
 import Meta from "@/components/common/Meta";
-import Blocks from "@/components/blocks";
+import TheHomeScene from "@/components/TheHomeScene";
 
 export default function Home({ data }) {
     log("log", "Home Page Data:", data);
     const {
-        attributes: { blocks, title },
+        attributes: { title },
     } = data;
     return (
         <>
             <Meta>
                 <title>{`${constants.SITE_NAME} | ${title}`}</title>
             </Meta>
-            <Blocks blocks={blocks} />
+            <TheHomeScene text="M"/>
         </>
     );
 }
