@@ -1,0 +1,13 @@
+.wrapper {
+    @include cover(fixed);
+}
+
+.inner {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+
+    canvas {
+        @include cover();
+    }
+}
