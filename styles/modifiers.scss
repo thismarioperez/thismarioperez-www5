@@ -40,6 +40,12 @@ $cursors: (default, pointer);
         z-index: $value;
     }
 }
+$positions: (relative, absolute, fixed);
+@each $position in $positions {
+    .-#{$position} {
+        position: $position;
+    }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Alignment
