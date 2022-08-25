@@ -1,26 +1,35 @@
 import styles from "./TheHomeScene.module.scss";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, Stars, Text3D } from "@react-three/drei";
+import { OrbitControls, Stats } from "@react-three/drei";
 import { Suspense } from "react";
 
+import Lighting from "./Lighting";
+import Camera from "./Camera";
+import TextMesh from "./TextMesh";
 
-export default function TheHomeScene({text}) {
+export default function TheHomeScene() {
+    const debug = true;
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.inner}>
                 <Canvas>
-                    <OrbitControls />
-                    <PerspectiveCamera />
-                    <Stars>
-                    </Stars>
-                    <ambientLight intensity={0.5} />
-                    <pointLight position={[10, 15, 10]} angle={0.3} />
+                    {debug ? <Stats /> : null}
+                    {debug ? <axesHelper args={[2]} /> : null}
+                    {debug ? <gridHelper args={[20, 20]} /> : null}
+                    {debug ? <OrbitControls /> : null}
+                    <Camera debug={debug} position={[2, 2, 4]} makeDefault/>
+                    <Lighting debug={debug} />
                     <Suspense fallback={null}>
-                        <Text3D font="/fonts/Prestige Elite Std_Bold.json" scale={4}>
-                            {text}
-                            <meshBasicMaterial color={0xffffff}/>
-                        </Text3D>
+                        <TextMesh
+                            font="/fonts/Prestige Elite Std_Bold.json"
+                            scale={2}
+                            debug={debug}
+                            position={[1, -0.5, 0]}
+                        >
+                            {"M"}
+                        </TextMesh>
                     </Suspense>
                 </Canvas>
             </div>
