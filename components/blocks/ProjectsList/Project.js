@@ -71,18 +71,20 @@ function Project({ title = null, content = null, links = null, image = null }) {
                 </div>
                 <div className={styles.imageWrapper}>
                     {image && image.data && image.data.attributes && (
-                        <ContentWrapper className={styles.image}>
-                            <Image
-                            layout="responsive"
-                                src={image.data.attributes.url}
-                                alt={image.data.attributes.alternativeText}
-                                placeholder="blur"
-                                blurDataURL={
-                                    image.data.attributes.formats.thumbnail.url
-                                }
-                                height={image.data.attributes.height}
-                                width={image.data.attributes.width}
-                            />
+                        <ContentWrapper>
+                            <div className={styles.image}>
+                                <Image
+                                    layout="responsive"
+                                    src={image.data.attributes.url}
+                                    alt={image.data.attributes.alternativeText}
+                                    placeholder="blur"
+                                    blurDataURL={
+                                        image.data.attributes.formats.thumbnail.url
+                                    }
+                                    height={image.data.attributes.height}
+                                    width={image.data.attributes.width}
+                                />
+                            </div>
                         </ContentWrapper>
                     )}
                 </div>
