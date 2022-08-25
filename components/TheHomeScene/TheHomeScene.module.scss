@@ -9,5 +9,6 @@
 
     canvas {
         @include cover();
+        z-index: z_layer(1);
     }
 }
