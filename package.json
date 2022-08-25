@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@fontsource/source-code-pro": "^4.5.11",
+    "@react-three/drei": "^9.23.4",
+    "@react-three/fiber": "^8.6.0",
     "classnames": "^2.3.1",
     "gsap": "^3.10.4",
     "immer": "^9.0.15",
@@ -26,10 +28,12 @@
     "react-transition-group": "^4.4.5",
     "remark-gfm": "^3.0.1",
     "sass": "^1.54.4",
+    "three": "^0.143.0",
     "zustand": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "next-transpile-modules": "^9.0.0"
   }
 }
