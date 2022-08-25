@@ -35,6 +35,11 @@ $cursors: (default, pointer);
 .-fzero {
     font-size: 0 !important;
 }
+@each $key, $value in $z-layers {
+    .-z--#{$key} {
+        z-index: $value;
+    }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Alignment
