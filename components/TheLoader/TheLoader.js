@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import useStore from "@/store";
 import { useRouter } from "next/router";
 import { gsap } from "@/lib/gsap";
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 
 import { Transition } from "react-transition-group";
 import Section from "../common/Section";

@@ -16,9 +16,9 @@ function ContentWrapper({ className, children, ...rest }) {
         isLoading: state.global.isLoading
     }))
     const { ref, inView } = useInView({
-        threshold: 0.8,
+        threshold: 0.6,
         rootMargin: `-${headerOffset}px 0px -50px 0px`,
-        triggerOnce: true,
+        triggerOnce: false,
     });
     const _ref = useRef(null);
     return (

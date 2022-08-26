@@ -4,13 +4,17 @@
     left: 0;
     width: 100%;
     z-index: z-layer(8);
-    background-color: theme-colors(dark);
+    background-color: rgba(theme-colors(dark), 100%);
     backdrop-filter: none;
     transition: all duration(1) ease(1);
 
     &--scrolled {
         background-color: rgba(theme-colors(dark), 50%);
         backdrop-filter: blur(10px);
+    }
+
+    :global([data-router-route="/"]) & {
+        background-color: rgba(theme-colors(dark), 0%);
     }
 }
 

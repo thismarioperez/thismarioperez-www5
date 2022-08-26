@@ -4,7 +4,7 @@ import styles from "./Section.module.scss";
 // lib
 import PropTypes from "prop-types";
 import useStore from "@/store";
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 import cx from "classnames";
 
 const SectionPropTypes = {
@@ -30,7 +30,7 @@ function Section({ alignment, className, children, offset, ...props }) {
             className={cx(
                 styles.wrapper,
                 styles[`wrapper--${alignment}`],
-                "-exp--3",
+                "-exp--2",
                 className
             )}
             style={style}

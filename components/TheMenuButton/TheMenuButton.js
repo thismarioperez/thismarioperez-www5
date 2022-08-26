@@ -4,7 +4,7 @@ import styles from "./TheMenuButton.module.scss";
 // lib
 import cx from "classnames";
 import useStore from "@/store";
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 
 function TheMenuButton() {
     const { openMenu, closeMenu, isMenuOpen } = useStore(

@@ -1,3 +1,4 @@
+import styles from "./Hero.module.scss";
 import colors from "@/styles/exports/colors.module.scss";
 
 // lib
@@ -6,8 +7,8 @@ import PropTypes from "prop-types";
 
 // components
 import Buttons from "@/components/common/Buttons";
-import Container from "../common/Container";
-import Copy from "../common/Copy";
+import Container from "@/components/common/Container";
+import Copy from "@/components/common/Copy";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import Section from "@/components/common/Section";
 import MarkdownRenderer from "@/components/common/MarkdownRenderer";
@@ -32,10 +33,14 @@ function Hero({
 }) {
     return (
         <Section
-            className={cx(`-bg--${heroBackgroundColor}`, tall && "-tall")}
+            className={cx(
+                `-bg--${heroBackgroundColor}`,
+                tall && "-tall",
+                styles.wrapper
+            )}
             {...rest}
         >
-            <Container className="-exp--t--3">
+            <Container className="-exp--t--2">
                 <Copy>
                     {subtitle && (
                         <ContentWrapper

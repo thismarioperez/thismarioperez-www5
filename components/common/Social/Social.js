@@ -3,7 +3,7 @@ import styles from "./Social.module.scss";
 
 // lib
 import useStore from "@/store";
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 
 // Components
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
