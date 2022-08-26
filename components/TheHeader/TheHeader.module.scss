@@ -12,6 +12,10 @@
         background-color: rgba(theme-colors(dark), 50%);
         backdrop-filter: blur(10px);
     }
+
+    :global([data-router-route="/"]) & {
+        background-color: transparent;
+    }
 }
 
 .inner {
