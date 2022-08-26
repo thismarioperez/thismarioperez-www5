@@ -15,7 +15,7 @@ import Container from "../common/Container";
 import Logo from "@/components/TheHeader/Logo";
 import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
-import { log } from "@/scripts/core";
+import CmsLink from "@/components/common/CmsLink";
 
 const ScrollIndicator = dynamic(
     () => import("@/components/TheHeader/ScrollIndicator"),
@@ -34,6 +34,7 @@ function TheHeader() {
         headerOffset: state.header.offset,
         setHeaderOffset: state.header.setOffset,
     }));
+    const { attributes: { ctas = [] } = {} } = data;
     const { y } = useWindowScrollPosition();
     const [ref, { height }] = useDimensions();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -77,7 +78,16 @@ function TheHeader() {
                     </Link>
                 </div>
                 <div className={styles.innerRight}>
-                    <div className={styles.innerRightContent}></div>
+                    <div className={styles.innerRightContent}>
+                        {ctas.map((cta, i) => (
+                            <p key={i}>
+                                <CmsLink {...cta}>
+                                    {cta.label}
+                                    {" →"}
+                                </CmsLink>
+                            </p>
+                        ))}
+                    </div>
                 </div>
                 <ScrollIndicator />
             </Container>
