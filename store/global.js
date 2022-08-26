@@ -3,7 +3,6 @@ import produce from "immer";
 const NAMESPACE = "global";
 
 const initialState = {
-    headerOffset: 0,
     isMenuOpen: false,
     isLoading: true,
 };
@@ -33,12 +32,6 @@ const createGlobal = (set, get) => ({
             set(
                 produce((state) => {
                     state[NAMESPACE].social = value;
-                })
-            ),
-        setHeaderOffset: (value) =>
-            set(
-                produce((state) => {
-                    state[NAMESPACE].headerOffset = value;
                 })
             ),
         startLoading: () =>

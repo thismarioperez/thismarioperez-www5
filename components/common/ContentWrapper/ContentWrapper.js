@@ -6,15 +6,19 @@ import useStore from "@/store";
 import { useInView } from "react-intersection-observer";
 import { useRef } from "react";
 import cx from "classnames";
+import shallow from "zustand/shallow";
 
 // components
 import { CSSTransition } from "react-transition-group";
 
 function ContentWrapper({ className, children, ...rest }) {
-    const { headerOffset, isLoading } = useStore(state => ({
-        headerOffset: state.global.headerOffset,
-        isLoading: state.global.isLoading
-    }))
+    const { headerOffset, isLoading } = useStore(
+        (state) => ({
+            headerOffset: state.header.offset,
+            isLoading: state.global.isLoading,
+        }),
+        shallow
+    );
     const { ref, inView } = useInView({
         threshold: 0.6,
         rootMargin: `-${headerOffset}px 0px -50px 0px`,

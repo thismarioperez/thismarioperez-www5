@@ -13,15 +13,18 @@ import TheFooter from "@/components/TheFooter";
 import TheMenuButton from "@/components/TheMenuButton";
 import TheMenu from "@/components/TheMenu";
 import TheLoader from "@/components/TheLoader";
-const ThePageIndicator = dynamic(() => import("@/components/ThePageIndicator"), {ssr: false});
+const ThePageIndicator = dynamic(
+    () => import("@/components/ThePageIndicator"),
+    { ssr: false }
+);
 
 const { SITE_NAME } = constants;
 
 export default function Layout({ children }) {
     const router = useRouter();
     const contentRef = useRef();
-    const { headerOffset } = useStore(({ global: { headerOffset } }) => ({
-        headerOffset,
+    const { headerOffset } = useStore((state) => ({
+        headerOffset: state.header.offset,
     }));
 
     useEffect(() => {
@@ -75,7 +78,7 @@ export default function Layout({ children }) {
                 {children}
             </main>
             <TheFooter />
-            <ThePageIndicator/>
+            <ThePageIndicator />
             <TheMenuButton />
             <TheMenu />
             <TheLoader />

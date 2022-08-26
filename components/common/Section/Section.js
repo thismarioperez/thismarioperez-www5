@@ -4,7 +4,7 @@ import styles from "./Section.module.scss";
 // lib
 import PropTypes from "prop-types";
 import useStore from "@/store";
-import shallow from 'zustand/shallow';
+import shallow from "zustand/shallow";
 import cx from "classnames";
 
 const SectionPropTypes = {
@@ -15,8 +15,8 @@ const SectionPropTypes = {
 };
 
 function Section({ alignment, className, children, offset, ...props }) {
-    const headerOffset = useStore(
-        ({ global: { headerOffset } }) => headerOffset,
+    const { headerOffset } = useStore(
+        (state) => ({ headerOffset: state.header.offset }),
         shallow
     );
     const style = offset

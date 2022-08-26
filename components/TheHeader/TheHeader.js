@@ -15,6 +15,7 @@ import Container from "../common/Container";
 import Logo from "@/components/TheHeader/Logo";
 import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
+import { log } from "@/scripts/core";
 
 const ScrollIndicator = dynamic(
     () => import("@/components/TheHeader/ScrollIndicator"),
@@ -24,12 +25,15 @@ const ScrollIndicator = dynamic(
 );
 
 function TheHeader() {
-    const { headerOffset, setHeaderOffset = () => {} } = useStore(
-        ({ global: { headerOffset, setHeaderOffset } }) => ({
-            headerOffset,
-            setHeaderOffset,
-        })
-    );
+    const {
+        data,
+        headerOffset,
+        setHeaderOffset = () => {},
+    } = useStore((state) => ({
+        data: state.header.data,
+        headerOffset: state.header.offset,
+        setHeaderOffset: state.header.setOffset,
+    }));
     const { y } = useWindowScrollPosition();
     const [ref, { height }] = useDimensions();
     const [isScrolled, setIsScrolled] = useState(false);
