@@ -1,8 +1,12 @@
+// style
+import styles from "@/styles/home.module.scss";
+
 // lib
 import { getHomePage } from "@/lib/api";
 import { log } from "@/scripts/core";
 import { constants } from "@/scripts/core";
 import cx from "classnames";
+import useBreakpoints from "@/hooks/useBreakpoints";
 
 // components
 import Meta from "@/components/common/Meta";
@@ -11,11 +15,11 @@ import Section from "@/components/common/Section";
 import ContentWrapper from "@/components/common/ContentWrapper";
 import Buttons from "@/components/common/Buttons";
 import Container from "@/components/common/Container";
-import Copy from "@/components/common/Copy";
 import MarkdownRenderer from "@/components/common/MarkdownRenderer";
 
 export default function Home({ data }) {
     log("log", "Home Page Data:", data);
+    const { medium } = useBreakpoints();
     const {
         attributes: { title, header, content, subheader, buttons },
     } = data;
@@ -24,9 +28,15 @@ export default function Home({ data }) {
             <Meta>
                 <title>{`${constants.SITE_NAME} | ${title}`}</title>
             </Meta>
-            <Section className="-tall">
+            <Section
+                className={cx(
+                    "-tall",
+                    styles.section,
+                    medium && styles.sectionMd
+                )}
+            >
                 <Container>
-                    <div className="-relative -z--2">
+                    <div className={styles.content}>
                         {header?.length > 0 && (
                             <ContentWrapper
                                 className={cx(
