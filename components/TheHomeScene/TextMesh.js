@@ -1,7 +1,9 @@
-import { useEffect, forwardRef } from "react";
+import { forwardRef } from "react";
 import { Text3D, useHelper } from "@react-three/drei";
-import { BoxHelper } from "three";
+import { useFrame } from "@react-three/fiber";
+import { BoxHelper, MathUtils } from "three";
 import useBreakpoints from "@/hooks/useBreakpoints";
+import { gsap } from "@/lib/gsap";
 
 const TextMesh = (
     { children, debug, font, fontSize = 0.5, position, ...rest },
@@ -24,16 +26,15 @@ const TextMesh = (
 
     const { medium } = useBreakpoints();
 
-    useEffect(() => {
+    useFrame(() => {
         if (ref.current) {
-            if (medium) {
-                ref.current.position.x = position[0];
-            } else {
-                ref.current.position.x = position[0] - 1;
-            }
-            console.log(ref.current);
+            gsap.to(ref.current.position, {
+                x: medium ? position[0] : position[0] - 1,
+                ease: "ease",
+                duration: 0.2,
+            });
         }
-    }, [medium, ref, position]);
+    });
 
     return (
         <group ref={ref} position={position} {...rest}>
