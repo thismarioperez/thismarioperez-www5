@@ -2,7 +2,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import dynamic from "next/dynamic";
 
-const MarkdownLink = dynamic(() => import("./MarkdownLink"), {
+const CmsLink = dynamic(() => import("./CmsLink"), {
     ssr: false,
 });
 
@@ -12,7 +12,7 @@ function MarkdownRenderer(props) {
             className="cms-content"
             remarkPlugins={[remarkGfm]}
             components={{
-                a: (props) => <MarkdownLink {...props} />,
+                a: (props) => <CmsLink {...props} />,
             }}
             {...props}
         />
