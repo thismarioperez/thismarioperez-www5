@@ -5,7 +5,7 @@ const NAMESPACE = "global";
 const initialState = {
     headerOffset: 0,
     isMenuOpen: false,
-    isLoading: false,
+    isLoading: true,
 };
 
 const createGlobal = (set, get) => ({
