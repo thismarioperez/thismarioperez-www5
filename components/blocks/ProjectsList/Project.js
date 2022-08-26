@@ -79,7 +79,8 @@ function Project({ title = null, content = null, links = null, image = null }) {
                                     alt={image.data.attributes.alternativeText}
                                     placeholder="blur"
                                     blurDataURL={
-                                        image.data.attributes.formats.thumbnail.url
+                                        image.data.attributes.formats.thumbnail
+                                            .url
                                     }
                                     height={image.data.attributes.height}
                                     width={image.data.attributes.width}
