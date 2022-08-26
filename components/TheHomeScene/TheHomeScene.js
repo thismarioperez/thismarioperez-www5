@@ -6,7 +6,6 @@ import {
     OrbitControls,
     PresentationControls,
     Stats,
-    Stars,
 } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 
