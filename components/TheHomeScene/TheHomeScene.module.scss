@@ -1,5 +1,11 @@
 .wrapper {
     @include cover(fixed);
+    opacity: 0;
+    transition: all duration(1) ease(1);
+
+    &--ready {
+        opacity: 1;
+    }
 }
 
 .inner {

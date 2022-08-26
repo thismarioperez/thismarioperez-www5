@@ -9,7 +9,8 @@ import {
     PresentationControls,
     Stats,
 } from "@react-three/drei";
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useState, useRef } from "react";
+import cx from "classnames";
 
 // components
 import Lighting from "./Lighting";
@@ -19,11 +20,16 @@ import TextMesh from "./TextMesh";
 export default function TheHomeScene() {
     const debug = false;
     const meshRef = useRef(null);
+    const [ready, setReady] = useState(false);
 
     return (
-        <div className={styles.wrapper}>
+        <div className={cx(styles.wrapper, ready && styles.wrapperReady)}>
             <div className={styles.inner}>
-                <Canvas>
+                <Canvas
+                    onCreated={() => {
+                        setReady(true);
+                    }}
+                >
                     {debug ? <Stats /> : null}
                     {debug ? <axesHelper args={[2]} /> : null}
                     {debug ? <gridHelper args={[20, 20]} /> : null}
