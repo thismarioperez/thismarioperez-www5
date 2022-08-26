@@ -5,15 +5,14 @@ import { useEffect, useState } from "react";
 import useStore from "@/store";
 import { useRouter } from "next/router";
 import { gsap } from "@/lib/gsap";
-import shallow from 'zustand/shallow';
+import shallow from "zustand/shallow";
 
 import { Transition } from "react-transition-group";
 import Section from "../common/Section";
 
 function TheLoader() {
-    const { isLoading, startLoading, finishLoading } = useStore(
+    const { startLoading, finishLoading } = useStore(
         (state) => ({
-            isLoading: state.global.isLoading,
             startLoading: state.global.startLoading,
             finishLoading: state.global.finishLoading,
         }),
