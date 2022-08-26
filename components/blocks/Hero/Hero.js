@@ -40,7 +40,7 @@ function Hero({
             )}
             {...rest}
         >
-            <Container className="-exp--t--3">
+            <Container className="-exp--t--2">
                 <Copy>
                     {subtitle && (
                         <ContentWrapper

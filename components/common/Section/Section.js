@@ -30,7 +30,7 @@ function Section({ alignment, className, children, offset, ...props }) {
             className={cx(
                 styles.wrapper,
                 styles[`wrapper--${alignment}`],
-                "-exp--3",
+                "-exp--2",
                 className
             )}
             style={style}
