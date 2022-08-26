@@ -10,7 +10,7 @@
 
     &--scrolled {
         background-color: rgba(theme-colors(dark), 50%);
-        // backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 
     :global([data-router-route="/"]) & {
