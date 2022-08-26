@@ -6,7 +6,7 @@ import durations from "@/styles/exports/durations.module.scss";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import useStore from "@/store";
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 import cx from "classnames";
 
 // components

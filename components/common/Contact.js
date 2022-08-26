@@ -1,5 +1,5 @@
 // lib
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 import useStore from "@/store";
 
 // components

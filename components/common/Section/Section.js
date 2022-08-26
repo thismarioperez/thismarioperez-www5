@@ -4,7 +4,7 @@ import styles from "./Section.module.scss";
 // lib
 import PropTypes from "prop-types";
 import useStore from "@/store";
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 import cx from "classnames";
 
 const SectionPropTypes = {

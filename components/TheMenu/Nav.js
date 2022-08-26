@@ -4,7 +4,7 @@ import styles from "./Nav.module.scss";
 // lib
 import useStore from "@/store";
 import { useRouter } from "next/router";
-import { shallow } from "immer";
+import shallow from 'zustand/shallow';
 import cx from "classnames";
 
 // components
