@@ -1,5 +1,7 @@
+// style
 import styles from "./TheHomeScene.module.scss";
 
+// lib
 import { Canvas } from "@react-three/fiber";
 import {
     Float,
@@ -7,8 +9,9 @@ import {
     PresentationControls,
     Stats,
 } from "@react-three/drei";
-import { Suspense, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 
+// components
 import Lighting from "./Lighting";
 import Camera from "./Camera";
 import TextMesh from "./TextMesh";
