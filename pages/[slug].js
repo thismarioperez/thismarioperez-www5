@@ -6,9 +6,9 @@ import { constants } from "@/scripts/core";
 import Meta from "@/components/common/Meta";
 import Blocks from "@/components/blocks";
 
-export default function Page({ data }) {
+export default function Page({ data = {} }) {
     const {
-        attributes: { blocks, title },
+        attributes: { blocks = [], title = "" } = {},
     } = data;
     log("log", `${title} Page Data:`, data);
     return (
@@ -36,6 +36,7 @@ export async function getStaticPaths() {
     const res = await getAllPages();
     const pages = res.pages.data;
     const slugs = pages.map(({ attributes: {slug}}) => slug);
+    console.log(slugs);
     return {
         paths:
         slugs.map(
