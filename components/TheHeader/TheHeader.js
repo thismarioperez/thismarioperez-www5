@@ -16,13 +16,6 @@ import Logo from "@/components/TheHeader/Logo";
 import LogoMark from "@/components/TheHeader/LogoMark";
 import Link from "next/link";
 
-const PageIndicator = dynamic(
-    () => import("@/components/TheHeader/PageIndicator"),
-    {
-        ssr: false,
-    }
-);
-
 const ScrollIndicator = dynamic(
     () => import("@/components/TheHeader/ScrollIndicator"),
     {
@@ -80,9 +73,7 @@ function TheHeader() {
                     </Link>
                 </div>
                 <div className={styles.innerRight}>
-                    <div className={styles.innerRightContent}>
-                        <PageIndicator />
-                    </div>
+                    <div className={styles.innerRightContent}></div>
                 </div>
                 <ScrollIndicator />
             </Container>

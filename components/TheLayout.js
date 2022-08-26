@@ -4,6 +4,7 @@ import useStore from "@/store";
 import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
 import { constants } from "@/scripts/core";
+import dynamic from "next/dynamic";
 
 // components
 import Meta from "@/components/common/Meta";
@@ -12,6 +13,7 @@ import TheFooter from "@/components/TheFooter";
 import TheMenuButton from "@/components/TheMenuButton";
 import TheMenu from "@/components/TheMenu";
 import TheLoader from "@/components/TheLoader";
+const ThePageIndicator = dynamic(() => import("@/components/ThePageIndicator"), {ssr: false});
 
 const { SITE_NAME } = constants;
 
@@ -73,6 +75,7 @@ export default function Layout({ children }) {
                 {children}
             </main>
             <TheFooter />
+            <ThePageIndicator/>
             <TheMenuButton />
             <TheMenu />
             <TheLoader />

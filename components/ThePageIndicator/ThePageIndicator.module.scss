@@ -1,0 +1,24 @@
+.wrapper {
+    position: fixed;
+    bottom: 0;
+    right: rem-calc(60px);
+    z-index: z_layer(8);
+}
+
+.inner {
+    position: relative;
+    padding: $nudge;
+    height: rem-calc(60px);
+}
+
+.content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include font-bold();
+    text-transform: none;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+}
