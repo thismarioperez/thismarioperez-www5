@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import useStore from "@/store";
 import { gsap } from "@/lib/gsap";
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
 import { constants } from "@/scripts/core";
 
 // components
