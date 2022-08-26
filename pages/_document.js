@@ -33,8 +33,8 @@ export default function Document() {
                     >
                         <LogoMark
                             style={{
-                                height: "100px",
-                                width: "100px",
+                                height: "50px",
+                                width: "50px",
                                 fill: "#ffffff",
                             }}
                         />
