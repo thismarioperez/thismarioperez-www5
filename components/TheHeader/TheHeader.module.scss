@@ -14,7 +14,8 @@
     }
 
     :global([data-router-route="/"]) & {
-        background-color: rgba(theme-colors(dark), 0%);
+        background-color: rgba(theme-colors(dark), 50%);
+        backdrop-filter: blur(10px);
     }
 }
 
