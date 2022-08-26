@@ -1,7 +1,13 @@
 import styles from "./TheHomeScene.module.scss";
 
 import { Canvas } from "@react-three/fiber";
-import { Float, OrbitControls, Stats, Stars } from "@react-three/drei";
+import {
+    Float,
+    OrbitControls,
+    PresentationControls,
+    Stats,
+    Stars,
+} from "@react-three/drei";
 import { Suspense, useRef } from "react";
 
 import Lighting from "./Lighting";
@@ -19,30 +25,36 @@ export default function TheHomeScene() {
                     {debug ? <Stats /> : null}
                     {debug ? <axesHelper args={[2]} /> : null}
                     {debug ? <gridHelper args={[20, 20]} /> : null}
-                    <OrbitControls object={meshRef} />
+                    <OrbitControls
+                        enableDamping={debug}
+                        enablePan={debug}
+                        enableRotate={debug}
+                        enableZoom={debug}
+                        reverseOrbit={debug}
+                    />
                     <Camera
                         debug={debug}
-                        position={[2, 2, 4.5]}
+                        position={[1, 2, 5]}
                         makeDefault={true}
                     />
                     <Lighting debug={debug} />
-                    <Stars />
                     <Suspense fallback={null}>
-                        <Float
-                            floatingRange={[undefined, 0.5]}
-                            rotation={[0, Math.PI / -0.25, 0]}
-                            position={[1, -0.75, 0]}
-                            speed={2}
-                        >
-                            <TextMesh
-                                ref={meshRef}
-                                font="/fonts/Prestige Elite Std_Bold.json"
-                                scale={2}
-                                debug={debug}
-                            >
-                                {"M"}
-                            </TextMesh>
-                        </Float>
+                        <PresentationControls snap={true}>
+                            <Float floatingRange={[undefined, 0.5]} speed={2}>
+                                <group>
+                                    <TextMesh
+                                        ref={meshRef}
+                                        font="/fonts/Prestige Elite Std_Bold.json"
+                                        scale={2}
+                                        rotation={[0, -0.2, 0]}
+                                        position={[1.2, -0.75, 0]}
+                                        debug={debug}
+                                    >
+                                        {"M"}
+                                    </TextMesh>
+                                </group>
+                            </Float>
+                        </PresentationControls>
                     </Suspense>
                 </Canvas>
             </div>

@@ -21,7 +21,7 @@ const TextMesh = ({ children, debug, font, fontSize = 0.5, ...rest }, ref) => {
     return (
         <group ref={ref} {...rest}>
             <Text3D position={[x, 0, 0]} {...textProps}>
-                <meshPhongMaterial color={0xffffff} shininess={500}/>
+                <meshPhongMaterial color={0xffffff}/>
                 {children}
             </Text3D>
         </group>

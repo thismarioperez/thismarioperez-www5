@@ -28,7 +28,7 @@ export default function Lighting({ debug }) {
                 ref={spotlightRef}
                 angle={Math.PI / 4}
                 color={0xffffff}
-                intensity={1}
+                intensity={.2}
                 position={[0.5, 4, 4]}
                 distance={100}
             />
