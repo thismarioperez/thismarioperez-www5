@@ -17,7 +17,17 @@ const ButtonPropTypes = {
     hollow: PropTypes.oneOf([true, false]),
 };
 
-const Button = ({ as, className, children, color, contained, hollow, round, type, ...rest }) => {
+const Button = ({
+    as,
+    className,
+    children,
+    color,
+    contained,
+    hollow,
+    round,
+    type,
+    ...rest
+}) => {
     const Component = as;
     return (
         <ConditionalWrapper
