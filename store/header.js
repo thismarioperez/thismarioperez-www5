@@ -12,6 +12,7 @@ if (apiData.header?.data && Object.keys(apiData.header.data).length > 0) {
 
 const initialState = {
     data,
+    offset: 0,
 };
 
 const createHeader = (set, get) => ({
@@ -29,6 +30,12 @@ const createHeader = (set, get) => ({
                 })
             );
         },
+        setOffset: (value) =>
+            set(
+                produce((state) => {
+                    state[NAMESPACE].offset = value;
+                })
+            ),
     },
 });
 
