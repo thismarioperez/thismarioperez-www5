@@ -45,9 +45,10 @@ function Hero({
                     {subtitle && (
                         <ContentWrapper
                             className={cx(
-                                title?.length ||
+                                (title?.length ||
                                     content?.length ||
-                                    (buttons?.length && "-exp--b--1/2")
+                                    buttons?.length) &&
+                                    "-exp--b--1/2"
                             )}
                         >
                             <h3>{subtitle}</h3>
@@ -56,8 +57,8 @@ function Hero({
                     {title && (
                         <ContentWrapper
                             className={cx(
-                                content?.length ||
-                                    (buttons?.length && "-exp--b")
+                                (content?.length || buttons?.length) &&
+                                    "-exp--b"
                             )}
                         >
                             <h1>{title}</h1>
