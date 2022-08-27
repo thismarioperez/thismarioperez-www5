@@ -61,11 +61,15 @@ function TheLoader() {
                 if (isVisible) {
                     gsap.to(n, {
                         alpha: 1,
+                        ease: "ease",
+                        duration: durations["1"] * 0.001,
                         onComplete: done,
                     });
                 } else {
                     gsap.to(n, {
                         alpha: 0,
+                        ease: "ease",
+                        duration: durations["1"] * 0.001,
                         onComplete: () => {
                             finishLoading();
                             done();
