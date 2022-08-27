@@ -1,14 +1,16 @@
 .wrapper {
     position: fixed;
-    bottom: 0;
-    right: rem-calc(60px);
+    bottom: rem-calc(60px);
+    right: 0;
     z-index: z_layer(8);
 }
 
 .inner {
     position: relative;
-    padding: $nudge;
-    height: rem-calc(60px);
+    padding: 2px 4px;
+    background-color: rgba(theme-colors(dark), 50%);
+    backdrop-filter: blur(10px);
+    min-width: rem-calc(60px);
 }
 
 .content {
@@ -20,5 +22,4 @@
 
     @include font-bold();
     text-transform: none;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
 }
