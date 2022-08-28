@@ -10,12 +10,12 @@
 
     &--scrolled {
         background-color: rgba(theme-colors(dark), 50%);
-        backdrop-filter: blur(10px);
+        // backdrop-filter: blur(10px);
     }
 
     :global([data-router-route="/"]) & {
         background-color: rgba(theme-colors(dark), 50%);
-        backdrop-filter: blur(10px);
+        // backdrop-filter: blur(10px);
     }
 }
 
@@ -49,7 +49,7 @@
     svg {
         fill: #fff;
         stroke: transparent;
-        transition: opacity duration(1) $ease, transform duration(1) $ease;
+        transition: all duration(1) ease(1);
     }
 
     svg:first-child {
@@ -66,17 +66,5 @@
         top: 50%;
         left: 0;
         transform: translate3d(-100%, -50%, 0);
-    }
-
-    // swap logo with logo-mark once page is scrolled
-    &--scrolled {
-        svg:first-child {
-            opacity: 0;
-            transform: translate3d(-100%, 0, 0);
-        }
-        svg:last-child {
-            opacity: 1;
-            transform: translate3d(0, -50%, 0);
-        }
     }
 }

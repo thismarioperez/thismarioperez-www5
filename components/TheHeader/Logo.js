@@ -1,6 +1,9 @@
-export default function Logo(props) {
+import { forwardRef } from "react";
+
+function Logo(props, ref) {
     return (
         <svg
+            ref={ref}
             enableBackground="new 0 0 237.8 19.6"
             viewBox="0 0 237.8 19.6"
             xmlns="http://www.w3.org/2000/svg"
@@ -23,3 +26,5 @@ export default function Logo(props) {
         </svg>
     );
 }
+
+export default forwardRef(Logo);
