@@ -61,7 +61,8 @@ function TheMenu() {
         return () => {
             tl.current.kill();
         };
-    }, [q]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         if (!tl.current) {
