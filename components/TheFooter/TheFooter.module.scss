@@ -1,3 +1,8 @@
+.wrapper {
+    position: relative;
+    z-index: z_layer(3);
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -42,4 +47,8 @@
     @include small {
         margin-bottom: unset;
     }
+}
+
+.bottom {
+    padding: rem-calc($nudge * 2) 0;
 }

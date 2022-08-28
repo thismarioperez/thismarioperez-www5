@@ -3,6 +3,7 @@ import styles from "./TheFooter.module.scss";
 
 // lib
 import { constants } from "@/scripts/core";
+import cx from "classnames";
 
 const { FRONTEND_GITHUB_URL, BACKEND_GITHUB_URL } = constants;
 
@@ -14,7 +15,7 @@ import Logo from "../TheHeader/Logo";
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className={styles.wrapper}>
             <div className="-bg--secondary -exp">
                 <Container>
                     <div className={styles.grid}>
@@ -30,27 +31,27 @@ export default function Footer() {
                     </div>
                 </Container>
             </div>
-            <div className="-bg--dark -exp">
+            <div className={cx(styles.bottom, "-bg--dark")}>
                 <Container>
-                    <h3>
-                        Built with{" "}
+                    <p>
+                        View source:{"  "}
                         <a
                             href={FRONTEND_GITHUB_URL}
                             target="_blank"
                             rel="noreferrer"
                         >
-                            Next.JS
+                            Frontend
                         </a>{" "}
-                        and{" "}
+                        |{" "}
                         <a
                             href={BACKEND_GITHUB_URL}
                             target="_blank"
                             rel="noreferrer"
                         >
-                            Strapi
+                            Backend
                         </a>
                         .
-                    </h3>
+                    </p>
                 </Container>
             </div>
         </footer>
