@@ -11,4 +11,9 @@
     position: relative;
     height: 100%;
     width: 100%;
+
+    @include medium {
+        width: 50%;
+        margin-left: auto;
+    }
 }

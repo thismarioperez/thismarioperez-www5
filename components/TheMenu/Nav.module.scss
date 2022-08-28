@@ -3,7 +3,7 @@
     display: flex;
     flex-flow: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     padding: $nudge 0;
     color: theme-colors(dark);
     @include h1();

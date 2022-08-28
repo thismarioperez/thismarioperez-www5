@@ -6,13 +6,14 @@ import durations from "@/styles/exports/durations.module.scss";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import useStore from "@/store";
-import shallow from 'zustand/shallow';
+import shallow from "zustand/shallow";
 import cx from "classnames";
 
 // components
 import Background from "@/components/TheMenu/Background";
 import Content from "@/components/TheMenu/Content";
 import Nav from "@/components/TheMenu/Nav";
+import Copy from "../common/Copy";
 
 function TheMenu() {
     const { isOpen } = useStore(
@@ -38,7 +39,7 @@ function TheMenu() {
                 {
                     scale: 1,
                     ease: "ease",
-                    duration: durations["2"] * 0.001
+                    duration: durations["2"] * 0.001,
                 }
             )
             .fromTo(
@@ -51,8 +52,8 @@ function TheMenu() {
                     alpha: 1,
                     y: 0,
                     ease: "ease",
-                    duration: durations["1"] * 0.001 / 2,
-                    stagger: durations["1"] * 0.001 / 2 * 0.25,
+                    duration: (durations["1"] * 0.001) / 2,
+                    stagger: ((durations["1"] * 0.001) / 2) * 0.25,
                 },
                 ">+=0.1"
             );
