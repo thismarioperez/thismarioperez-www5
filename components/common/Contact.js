@@ -1,10 +1,6 @@
 // lib
-import shallow from 'zustand/shallow';
+import shallow from "zustand/shallow";
 import useStore from "@/store";
-
-// components
-import ContentWrapper from "@/components/common/ContentWrapper";
-import Social from "@/components/common/Social";
 
 const DEFAULTS = {
     phone: null,
@@ -21,19 +17,17 @@ export default function Contact() {
     const { email, phone } = contact;
 
     return (
-        <>
+        <div>
             {email && (
                 <p>
-                    email: <a href={`mailto:${email}`}>{email}</a>
+                    <a href={`mailto:${email}`}>{email}</a>
                 </p>
             )}
             {phone && (
                 <p>
-                    phone: <a href={`tel:1${phone}`}>{phone}</a>
+                    <a href={`tel:1${phone}`}>{phone}</a>
                 </p>
             )}
-
-            <Social />
-        </>
+        </div>
     );
 }
