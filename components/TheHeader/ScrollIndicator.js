@@ -26,13 +26,16 @@ function ScrollIndicator() {
     });
 
     useLayoutEffect(() => {
-        gsap.to(ref.current, {
-            scaleX: scroll,
-        });
+        if (ref.current) {
+            let el = ref.current;
+            gsap.to(el, {
+                scaleX: scroll,
+            });
 
-        return (() => {
-            gsap.killTweensOf(ref.current);
-        });
+            return (() => {
+                gsap.killTweensOf(el);
+            });
+        }
     }, [scroll]);
 
     return (

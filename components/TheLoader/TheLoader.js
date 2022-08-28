@@ -44,7 +44,7 @@ function TheLoader() {
         if (isVisible) {
             startLoading();
         }
-    }, [isVisible]);
+    }, [isVisible, startLoading]);
 
     return (
         <Transition

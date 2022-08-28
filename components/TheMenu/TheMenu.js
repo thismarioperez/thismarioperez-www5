@@ -61,7 +61,7 @@ function TheMenu() {
         return () => {
             tl.current.kill();
         };
-    }, []);
+    }, [q]);
 
     useEffect(() => {
         if (!tl.current) {

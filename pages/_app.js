@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps }) {
                 },
             });
         }
-    }, []);
+    }, [finishLoading]);
 
     return (
         <TheLayout>

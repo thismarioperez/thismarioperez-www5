@@ -47,14 +47,15 @@ function Projects({ allProjects }) {
                 projects.map(({ blocks, id, postFields, title }, i) => {
                     const { externalUrl = null } = postFields;
                     return (
-                        <article
-                            className={styles.project}
-                            key={id}
-                        >
+                        <article className={styles.project} key={id}>
                             <ContentWrapper>
                                 <h3>
                                     {externalUrl ? (
-                                        <a href={externalUrl} target="_blank">
+                                        <a
+                                            href={externalUrl}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
                                             {title}
                                         </a>
                                     ) : (
