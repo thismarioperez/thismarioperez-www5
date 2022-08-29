@@ -1,17 +1,8 @@
-import apiData from "@/lib/header.preval";
-import { getHeader } from "@/lib/api";
 import produce from "immer";
 
 const NAMESPACE = "header";
 
-let data = {};
-
-if (apiData.header?.data && Object.keys(apiData.header.data).length > 0) {
-    data = apiData.header.data;
-}
-
 const initialState = {
-    data,
     offset: 0,
 };
 
