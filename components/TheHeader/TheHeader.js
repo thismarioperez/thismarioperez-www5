@@ -28,15 +28,17 @@ const ScrollIndicator = dynamic(
 
 function TheHeader() {
     const {
-        data,
+        navigations,
         headerOffset,
         setHeaderOffset = () => {},
     } = useStore((state) => ({
-        data: state.header.data,
         headerOffset: state.header.offset,
+        navigations: state.navigations,
         setHeaderOffset: state.header.setOffset,
     }));
-    const { attributes: { ctas = [] } = {} } = data;
+    const { data = [] } = navigations;
+    const header = data.filter((nav) => nav.attributes.slug === "header");
+    const links = header[0]?.attributes?.items ?? [];
     const { y } = useWindowScrollPosition();
     const [ref, { height }] = useDimensions();
     const logoRef = useRef(null);
@@ -134,7 +136,7 @@ function TheHeader() {
                 </div>
                 <div className={styles.innerRight}>
                     <div className={styles.innerRightContent}>
-                        {ctas.map((cta, i) => (
+                        {links.map((cta, i) => (
                             <p key={i}>
                                 <CmsLink {...cta}>
                                     {cta.label}
