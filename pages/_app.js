@@ -12,9 +12,10 @@ import { useRouter } from "next/router";
 import { gsap } from "@/lib/gsap";
 import useStore from "@/store";
 import shallow from "zustand/shallow";
-
-import TheLayout from "@/components/TheLayout";
 import { detect } from "@/scripts/core";
+
+import { GoogleAnalytics } from "nextjs-google-analytics";
+import TheLayout from "@/components/TheLayout";
 
 detect.init();
 
@@ -52,9 +53,12 @@ function MyApp({ Component, pageProps }) {
     }, [finishLoading]);
 
     return (
-        <TheLayout>
-            <Component {...pageProps} />
-        </TheLayout>
+        <>
+            <GoogleAnalytics trackPageViews={{ ignoreHashChange: true }} />
+            <TheLayout>
+                <Component {...pageProps} />
+            </TheLayout>
+        </>
     );
 }
 
