@@ -1,0 +1,38 @@
+.link {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: $nudge 0;
+    color: theme-colors(dark);
+    @include h1();
+    transform: translate(0,0);
+    transition: all duration(1) ease(1);
+
+    &:hover,
+    &:focus-visible {
+        transform: translate($nudge, 0);
+    }
+
+    &:before {
+        display: inline-block;
+        content: "*";
+        @include h2();
+        font-weight: bold;
+        transform: scaleX(0);
+        overflow: hidden;
+        transition: all duration(1) $ease;
+        height: 100%;
+    }
+
+    &__text {
+        display: inline-block;
+    }
+
+    &--active {
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+}

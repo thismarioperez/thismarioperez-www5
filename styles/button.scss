@@ -1,0 +1,111 @@
+@use "sass:color";
+
+button,
+.button {
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: all linear duration(1);
+
+    &[disabled],
+    &[disabled]:hover {
+        cursor: not-allowed;
+        background-color: theme-colors(secondary1);
+        color: theme-colors(white);
+    }
+}
+
+.button--contained {
+    max-width: 100%;
+
+    @include small {
+        max-width: rem-calc(250px);
+    }
+}
+
+.button--empty {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    line-height: 1;
+}
+
+.button--default {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: rem-calc(16);
+    padding-right: rem-calc(32);
+    padding-bottom: rem-calc(16);
+    padding-left: rem-calc(32);
+
+    border: 2px solid transparent;
+    background-color: transparent;
+    border-radius: 0;
+
+    @include button;
+    text-align: center;
+}
+
+.button--thin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: rem-calc(4);
+    padding-right: rem-calc(16);
+    padding-bottom: rem-calc(4);
+    padding-left: rem-calc(16);
+
+    border: 2px solid transparent;
+    background-color: transparent;
+    border-radius: 0;
+
+    @include button;
+    text-align: center;
+}
+
+.button--radius {
+    border-radius: rem-calc(5);
+}
+
+@each $name, $color in $colors {
+    .button--#{$name} {
+        background-color: $color;
+
+        @if index($dark, $name) {
+            color: theme-colors(light);
+        } @else if index($light, $name) {
+            color: theme-colors(dark);
+        } @else {
+            color: inherit;
+        }
+
+        &:hover {
+            background-color: color.scale($color, $lightness: -30%);
+        }
+    }
+
+    .button--hollow--#{$name} {
+        border-color: $color;
+
+        @if $name == "none" {
+            color: inherit;
+        } @else {
+            color: $color;
+        }
+
+        &:hover {
+            background-color: $color;
+
+            @if index($dark, $name) {
+                color: theme-colors(light);
+            } @else if index($light, $name) {
+                color: theme-colors(dark);
+            } @else {
+                color: inherit;
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+.wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: z_layer(10);
+}
+
+.button {
+    padding: $nudge;
+    border-color: transparent;
+
+    &:hover {
+        background-color: theme-colors(primary);
+    }
+
+    &--active {
+        border-color: theme-colors(dark);
+    }
+}
+
+.icon {
+    $p: &;
+    $size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    width: rem-calc($size);
+    height: rem-calc($size);
+
+    .line {
+        height: 2px;
+        background-color: currentColor;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        transition: all duration(1) ease(1), transform duration(1) ease(1);
+
+        &:nth-child(1) {
+            width: 50%;
+
+            .button:hover & {
+                width: 75%;
+            }
+        }
+        &:nth-child(2) {
+            width: 100%;
+        }
+        &:nth-child(3) {
+            width: 75%;
+
+            .button:hover & {
+                width: 50%;
+            }
+        }
+    }
+
+    &--active {
+        .line {
+            color: theme-colors(dark);
+        }
+        .line:nth-child(1) {
+            transform-origin: bottom;
+            transform: rotatez(45deg) translate(2px, 1px);
+
+            &,
+            .button:hover & {
+                width: 50%;
+            }
+        }
+        .line:nth-child(2) {
+            transform-origin: center;
+            transform: rotatez(-45deg);
+        }
+        .line:nth-child(3) {
+            // transform-origin:bottom;
+            width: 50%;
+            transform: translate(10px, -2px) rotatez(45deg);
+        }
+    }
+}

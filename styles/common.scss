@@ -1,0 +1,66 @@
+////////////////////////////////////////////////////////////////////////////////
+// Box Sizing
+////////////////////////////////////////////////////////////////////////////////
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Document
+////////////////////////////////////////////////////////////////////////////////
+html,
+body,
+#__next {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0 auto;
+    color: theme-colors(light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: theme-colors(dark);
+    color: theme-colors(light);
+    @include base();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Layout
+////////////////////////////////////////////////////////////////////////////////
+.container {
+    display: block;
+    position: relative;
+    @include container();
+}
+
+.copy {
+    display: block;
+    position: relative;
+    @include copy();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// content
+////////////////////////////////////////////////////////////////////////////////
+.cms-content {
+    ul {
+        display: block;
+        list-style: disc outside;
+        padding-left: $nudge;
+    }
+    ol {
+        display: block;
+        list-style: decimal outside;
+        padding-left: $nudge;
+    }
+}

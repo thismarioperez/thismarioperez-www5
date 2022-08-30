@@ -1,0 +1,95 @@
+////////////////////////////////////////////////////////////////////////////////
+// Display
+////////////////////////////////////////////////////////////////////////////////
+.-exp {
+    @include exp();
+}
+.-inset {
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+}
+.-vtop {
+    vertical-align: top;
+}
+.-vbot {
+    vertical-align: bottom;
+}
+.-full {
+    width: 100%;
+}
+.-tall {
+    min-height: 100vh;
+}
+.-block {
+    display: block;
+}
+$cursors: (default, pointer);
+@each $cursor in $cursors {
+    .-cursor--#{$cursor} {
+        cursor: $cursor;
+    }
+}
+.-meta {
+    font-size: $meta-size;
+}
+.-fzero {
+    font-size: 0 !important;
+}
+@each $key, $value in $z-layers {
+    .-z--#{$key} {
+        z-index: $value;
+    }
+}
+$positions: (relative, absolute, fixed);
+@each $position in $positions {
+    .-#{$position} {
+        position: $position;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Alignment
+////////////////////////////////////////////////////////////////////////////////
+.-text {
+    &--left {
+        text-align: left;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--right {
+        text-align: right;
+    }
+
+    &--hidden {
+        display: inline-block;
+        text-indent: -99999%;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Colors
+////////////////////////////////////////////////////////////////////////////////
+/// Backgrounds
+@each $name, $color in $colors {
+    .-bg--#{$name} {
+        background-color: $color;
+
+        @if index($dark, $name) {
+            color: theme-colors(light);
+        } @else if index($light, $name) {
+            color: theme-colors(dark);
+        } @else {
+            color: inherit;
+        }
+    }
+}
+
+/// Text color
+@each $name, $color in $colors {
+    .-color--#{$name} {
+        color: $color;
+    }
+}

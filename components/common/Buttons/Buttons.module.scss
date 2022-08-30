@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+
+    :global(.button) + :global(.button) {
+        margin-top: rem-calc($nudge);
+    }
+
+    @include small {
+        flex-flow: row;
+        align-items: flex-start;
+
+        :global(.button) + :global(.button) {
+            margin-top: 0;
+            margin-left: rem-calc($nudge);
+        }
+    }
+}

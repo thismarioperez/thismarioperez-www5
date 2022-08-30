@@ -1,0 +1,54 @@
+.wrapper {
+    position: relative;
+    z-index: z_layer(3);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include small {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: rem-calc(32px);
+        justify-items: start;
+    }
+
+    &__item {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        
+        @include small {
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+
+            &:not(:first-child) {
+                align-items: center;
+            }
+        }
+
+        &:nth-child(3) {
+            margin-left: $nudge * -1;
+
+            @include small {
+                margin-left: unset;
+            }
+        }
+    }
+}
+
+.logo {
+    fill: theme-colors(light);
+    width: 100%;
+    max-width: $header-logo-size-max;
+    margin-bottom: rem-calc($nudge);
+
+    @include small {
+        margin-bottom: unset;
+    }
+}
+
+.bottom {
+    padding: rem-calc($nudge * 2) 0;
+}

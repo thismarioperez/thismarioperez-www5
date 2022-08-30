@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////
+// Positioning
+////////////////////////////////////////////////////////////////////////////////
+@mixin cover($position: absolute) {
+    position: $position;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Module utility
+////////////////////////////////////////////////////////////////////////////////
+@mixin container {
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+}
+
+@mixin copy {
+    @each $bp, $width in $copy-width {
+        @if $bp == 0 {
+            width: $width;
+        } @else {
+            @include breakpoint($bp) {
+                width: $width;
+            }
+        }
+    }
+
+    &--center {
+        margin: 0 auto;
+    }
+}
+
+@mixin wrap-media {
+    padding-left: $wrap-media;
+    padding-right: $wrap-media;
+}

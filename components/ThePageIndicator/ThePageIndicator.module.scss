@@ -1,0 +1,25 @@
+.wrapper {
+    position: fixed;
+    bottom: rem-calc(60px);
+    right: 0;
+    z-index: z_layer(8);
+}
+
+.inner {
+    position: relative;
+    padding: 2px 4px;
+    background-color: rgba(theme-colors(dark), 50%);
+    backdrop-filter: blur(10px);
+    min-width: rem-calc(60px);
+}
+
+.content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include font-bold();
+    text-transform: none;
+}

@@ -1,0 +1,4 @@
+.wrapper {
+    @include cover(absolute);
+    transform-origin: bottom right;
+}

@@ -1,0 +1,4 @@
+.wrapper {
+    @include cover(fixed);
+    z-index: z_layer(2);
+}

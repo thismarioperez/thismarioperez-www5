@@ -1,0 +1,18 @@
+.section {
+    position: relative;
+    z-index: z_layer(2);
+
+    background-color: rgba(theme-colors(dark), 50%);
+    transition: all duration(1) ease(1);
+
+    &--md {
+        z-index: initial;
+        padding: 0;
+        background-color: rgba(theme-colors(dark), 0%);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: z_layer(2);
+}

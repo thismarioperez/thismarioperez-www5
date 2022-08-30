@@ -1,0 +1,202 @@
+////////////////////////////////////////////////////////////////////////////////
+// Fonts: Util
+////////////////////////////////////////////////////////////////////////////////
+@mixin font-light() {
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@mixin font-normal() {
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@mixin font-bold() {
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Fonts: Styles
+////////////////////////////////////////////////////////////////////////////////
+@mixin base {
+    font-family: $font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+@mixin font-headline {
+    font-family: $font-family;
+    @include font-light();
+}
+
+@mixin font-headline-2 {
+    font-family: $font-family;
+    @include font-bold();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Typography
+////////////////////////////////////////////////////////////////////////////////
+@mixin strong() {
+    @include font-bold();
+}
+
+@mixin em() {
+    font-style: italic;
+}
+
+@mixin p() {
+    font-size: rem-calc($p-size);
+    line-height: $p-line;
+    @include font-normal();
+}
+
+@mixin a() {
+    display: inline;
+    text-decoration: underline;
+    @include font-normal();
+}
+
+@mixin pa() {
+    position: relative;
+    z-index: z-layer(1);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-image: linear-gradient(
+        theme-colors(primary),
+        theme-colors(primary)
+    );
+    text-decoration: none;
+    transition: color duration(1) $ease, background-size duration(1) $ease;
+    transform: translate3d(0, 0, 0);
+}
+
+@mixin pa-hover() {
+    &:hover {
+        color: theme-colors(dark);
+        background-size: 100% 100%;
+    }
+}
+
+@mixin pa-touch-hover() {
+    &:hover {
+        color: theme-colors(secondary);
+        background-size: 100% 100%;
+    }
+}
+
+@mixin ha() {
+    display: inline;
+    position: relative;
+    color: theme-colors(primary);
+    overflow: hidden;
+    text-decoration: none;
+
+    &:after {
+        content: "\2192";
+        color: inherit;
+        font-weight: normal;
+        margin-left: ($nudge / 2);
+    }
+}
+
+@mixin li() {
+    padding-left: 20px;
+    @include p();
+}
+
+@mixin ol-li() {
+    list-style: decimal;
+}
+
+@mixin ul-li() {
+    list-style: disc;
+}
+
+@mixin pp() {
+    margin-top: rem-calc($base-font-size);
+}
+
+@mixin h1() {
+    &,
+    & > a {
+        font-size: $h1-size;
+        line-height: $h1-line;
+        letter-spacing: $track;
+        text-transform: none;
+        @include font-headline();
+
+        @include small {
+            font-size: rem-calc($h1-size-two);
+            line-height: $h1-line-two;
+        }
+    }
+}
+
+@mixin h2() {
+    &,
+    & > a {
+        font-size: $h2-size;
+        line-height: $h2-line;
+        letter-spacing: $track;
+        text-transform: none;
+        @include font-headline();
+
+        @include small {
+            font-size: rem-calc($h2-size-two);
+            line-height: $h2-line-two;
+        }
+    }
+}
+
+@mixin h3() {
+    &,
+    & > a {
+        font-size: rem-calc($h3-size);
+        line-height: $h3-line;
+        letter-spacing: $track;
+        text-transform: uppercase;
+        @include font-headline-2();
+    }
+}
+
+@mixin h4() {
+}
+
+@mixin h5() {
+}
+
+@mixin h6() {
+}
+
+@mixin hr() {
+    color: inherit;
+    display: block;
+    padding-top: $nudge;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px dashed currentColor;
+    border-left: none;
+}
+
+@mixin quote() {
+    font-size: rem-calc($quote-size);
+    line-height: $quote-line;
+    letter-spacing: $track;
+    text-transform: none;
+    @include font-headline();
+    font-style: italic;
+}
+
+@mixin button {
+    font-family: $font-family;
+    font-weight: 500;
+    font-size: rem-calc($btn-size);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}

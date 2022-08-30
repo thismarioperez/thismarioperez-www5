@@ -1,0 +1,57 @@
+@use "sass:math";
+
+$expander: (
+    0: rem-calc(32px),
+    medium: rem-calc(48px),
+    xxlarge: rem-calc(56px),
+    huge: rem-calc(64px),
+);
+
+@function expander($key) {
+    @return map-get($map: $expander, $key: $key);
+}
+
+@mixin exp-paddify($sides: top bottom, $modifier: 1) {
+    @each $breakpoint, $size in $expander {
+        @if $breakpoint == 0 {
+            @each $side in $sides {
+                padding-#{$side}: $size * $modifier;
+            }
+        } @else {
+            @include breakpoint($breakpoint) {
+                @each $side in $sides {
+                    padding-#{$side}: $size * $modifier;
+                }
+            }
+        }
+    }
+}
+@mixin exp() {
+    $modifiers: (
+        '1/2': 0.5,
+        '0.5': 0.5,
+        '1': 1,
+        '2': 2,
+        '3': 3
+    );
+    $directions: (
+        "t": top,
+        "b": bottom,
+    );
+
+    @include exp-paddify();
+
+    @each $modKey, $modVal in $modifiers {
+        &--#{escape($modKey)} {
+            @include exp-paddify(top bottom, $modVal);
+        }
+        @each $key, $value in $directions {
+            &--#{$key} {
+                @include exp-paddify($value);
+            }
+            &--#{$key}--#{escape($modKey)} {
+                @include exp-paddify($value, $modVal);
+            }
+        }
+    }
+}

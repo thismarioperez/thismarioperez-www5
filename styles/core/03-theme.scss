@@ -1,0 +1,99 @@
+////////////////////////////////////////////////////////////////////////////////
+// Colors
+////////////////////////////////////////////////////////////////////////////////
+$colors: (
+    // base colors
+    dark: #1c1b22,
+    light: #fff,
+
+    // brand colors
+    // Main Primary color */
+    primary: #fee000,
+
+    // Main Secondary color */
+    secondary: #212128
+);
+
+$dark: dark secondary;
+$light: light primary;
+
+$accents: (
+    primary1: #ffed63,
+    primary2: #ffe839,
+    primary3: #c5ae00,
+    primary4: #9b8900,
+    secondary1: #646476,
+    secondary2: #464654,
+    secondary3: #161624,
+    secondary4: #0f0f21,
+);
+
+@function theme-colors($key) {
+    @return map-get($map: $colors, $key: $key);
+}
+@function accent-colors($key) {
+    @return map-get($map: $accents, $key: $key);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Fonts
+////////////////////////////////////////////////////////////////////////////////
+$font-family: "Source Code Pro", monospace;
+$base-line-height: 24px;
+
+////////////////////////////////////////////////////////////////////////////////
+// Typography
+////////////////////////////////////////////////////////////////////////////////
+$p-size: 16px;
+$p-line: 1.6;
+$h1-size: 12vw;
+$h1-size-two: 50px;
+$h1-line: 1.2;
+$h1-line-two: 1.2;
+$h2-size: 8vw;
+$h2-size-two: 40px;
+$h2-line: 1;
+$h2-line-two: 1;
+$h3-size: 18px;
+$h3-line: 1.5;
+$meta-size: 14px;
+$quote-size: 19px;
+$quote-size-two: 32px;
+$quote-line: 1.5;
+$quote-line-two: 1.5;
+$nava-size: 40px;
+$nava-size-two: 8vw;
+$nava-line: 1.2;
+$nava-line-two: 1.2;
+$track: 0;
+$track-two: 0.8px;
+$footer-size: 50%;
+$footer-size-two: 80%;
+$btn-pad: 0.6em 1em;
+$btn-size: 14px;
+
+////////////////////////////////////////////////////////////////////////////////
+// Animations
+////////////////////////////////////////////////////////////////////////////////
+$eases: (
+    1: "0.62, 0, 0.38, 1",
+    2: "0.8, 0, 0.6, 1",
+);
+$ease: cubic-bezier(#{map-get($eases, 1)}); // main easing. custom ease-in-out
+$ease-two: cubic-bezier(#{map-get($eases, 2)}); // longer ease-in-out
+@function ease($key) {
+    @return cubic-bezier(#{map-get($map: $eases, $key: $key)});
+}
+$durations: (
+    1: 200,
+    2: 400,
+    3: 800,
+    4: 1000,
+    5: 1200,
+    6: 1400,
+    7: 1600,
+    8: 2000,
+);
+@function duration($key) {
+    @return map-get($map: $durations, $key: $key) + 0ms;
+}

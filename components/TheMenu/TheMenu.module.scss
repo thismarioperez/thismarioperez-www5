@@ -1,0 +1,19 @@
+.wrapper {
+    // using this wrapper establishes a new z stacking order.
+    // all children of this node can use z layers starting from 1 again.
+    @include cover(fixed);
+    z-index: z_layer(9);
+    transform-origin: bottom right;
+    transform: scale(0); // set initial position off screen
+}
+
+.inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    @include medium {
+        width: 50%;
+        margin-left: auto;
+    }
+}
