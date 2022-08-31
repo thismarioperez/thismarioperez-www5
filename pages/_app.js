@@ -52,10 +52,6 @@ function MyApp({ Component, pageProps }) {
         }
     }, [finishLoading]);
 
-
-    useEffect(() => {
-        console.log(constants);
-    });
     return (
         <>
             {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}

@@ -20,8 +20,8 @@ function ContentWrapper({ className, children, ...rest }) {
         shallow
     );
     const { ref, inView } = useInView({
-        threshold: 0.6,
-        rootMargin: `-${headerOffset}px 0px -50px 0px`,
+        threshold: 0.75,
+        rootMargin: `${headerOffset}px 0px -50px 0px`,
         triggerOnce: false,
     });
     const _ref = useRef(null);
