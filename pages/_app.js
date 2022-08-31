@@ -12,9 +12,9 @@ import { useRouter } from "next/router";
 import { gsap } from "@/lib/gsap";
 import useStore from "@/store";
 import shallow from "zustand/shallow";
-import { detect } from "@/scripts/core";
+import {constants, detect } from "@/scripts/core";
 
-import { GoogleAnalytics } from "nextjs-google-analytics";
+import Script from "next/script";
 import TheLayout from "@/components/TheLayout";
 
 detect.init();
@@ -52,9 +52,26 @@ function MyApp({ Component, pageProps }) {
         }
     }, [finishLoading]);
 
+
+    useEffect(() => {
+        console.log(constants);
+    });
     return (
         <>
-            <GoogleAnalytics trackPageViews={{ ignoreHashChange: true }} />
+            {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+            <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${constants.GA_MEASUREMENT_ID}`}
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+            {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${constants.GA_MEASUREMENT_ID}');
+            `}
+            </Script>
             <TheLayout>
                 <Component {...pageProps} />
             </TheLayout>
