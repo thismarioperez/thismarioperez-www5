@@ -32,7 +32,7 @@ function Project({ title = null, content = null, links = null, image = null }) {
     return (
         <Section className={styles.wrapper}>
             <Container className={styles.container}>
-                <div className={styles.content}>
+                <Copy className={styles.content}>
                     {title && (
                         <ContentWrapper
                             className={cx(
@@ -68,7 +68,7 @@ function Project({ title = null, content = null, links = null, image = null }) {
                             </div>
                         </ContentWrapper>
                     )}
-                </div>
+                </Copy>
                 <div className={styles.imageWrapper}>
                     {image && image.data && image.data.attributes && (
                         <ContentWrapper>
