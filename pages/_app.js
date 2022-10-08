@@ -12,10 +12,12 @@ import { useRouter } from "next/router";
 import { gsap } from "@/lib/gsap";
 import useStore from "@/store";
 import shallow from "zustand/shallow";
-import {constants, detect } from "@/scripts/core";
+import { constants, detect } from "@/scripts/core";
 
 import Script from "next/script";
 import TheLayout from "@/components/TheLayout";
+import TheTransitionLayout from "@/components/TheTransitionLayout";
+import { TransitionProvider } from "@/context/TransitionContext";
 
 detect.init();
 
@@ -60,7 +62,7 @@ function MyApp({ Component, pageProps }) {
                 strategy="afterInteractive"
             />
             <Script id="google-analytics" strategy="afterInteractive">
-            {`
+                {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){window.dataLayer.push(arguments);}
                 gtag('js', new Date());
@@ -68,9 +70,13 @@ function MyApp({ Component, pageProps }) {
                 gtag('config', '${constants.GA_MEASUREMENT_ID}');
             `}
             </Script>
-            <TheLayout>
-                <Component {...pageProps} />
-            </TheLayout>
+            <TransitionProvider>
+                <TheTransitionLayout>
+                    <TheLayout>
+                        <Component {...pageProps} />
+                    </TheLayout>
+                </TheTransitionLayout>
+            </TransitionProvider>
         </>
     );
 }
