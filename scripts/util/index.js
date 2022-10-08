@@ -1,4 +1,4 @@
-export default function isExternalLink(url) {
+export function isExternalLink(url) {
     if (typeof window !== "undefined") {
         const tmp = document.createElement("a");
         tmp.href = url;

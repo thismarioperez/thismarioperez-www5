@@ -1,4 +1,4 @@
-import isExternalLink from "@/scripts/util/isExternalLink";
+import { isExternalLink } from "@/scripts/util";
 
 import Link from "next/link";
 import ConditionalWrapper from "./ConditionalWrapper";
